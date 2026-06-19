@@ -27,3 +27,4 @@ yarn-error.log*
 .vinext
 .wrangler
 .open-next
+worker

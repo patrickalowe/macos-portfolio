@@ -4,7 +4,7 @@ import { env, hasGithubAuth } from "@/lib/api/env"
 import { mockGithub } from "@/lib/api/mock"
 import type { GithubRepo, GithubResponse } from "@/lib/api/types"
 
-export const revalidate = 3600
+export const dynamic = "force-dynamic"
 
 interface GithubUserPayload {
   login: string

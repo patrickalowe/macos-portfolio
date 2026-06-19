@@ -3,7 +3,7 @@ import { mockMail } from "@/lib/api/mock"
 import { readMail } from "@/lib/api/seed"
 import type { MailResponse } from "@/lib/api/types"
 
-export const revalidate = 3600
+export const dynamic = "force-dynamic"
 
 export async function GET(): Promise<Response> {
   const messages = await readMail()

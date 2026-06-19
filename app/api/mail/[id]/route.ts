@@ -3,7 +3,7 @@ import { json, jsonError } from "@/lib/api/http"
 import { mockMail } from "@/lib/api/mock"
 import { readMail } from "@/lib/api/seed"
 
-export const revalidate = 3600
+export const dynamic = "force-dynamic"
 
 export async function GET(_req: NextRequest, ctx: { params: Promise<{ id: string }> }): Promise<Response> {
   const { id } = await ctx.params

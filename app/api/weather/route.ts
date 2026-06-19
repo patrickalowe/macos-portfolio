@@ -4,7 +4,7 @@ import { env } from "@/lib/api/env"
 import { conditionLabel, mockWeather } from "@/lib/api/mock"
 import type { WeatherCondition, WeatherResponse, WeatherDay } from "@/lib/api/types"
 
-export const revalidate = 900
+export const dynamic = "force-dynamic"
 
 const DOW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 

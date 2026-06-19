@@ -1,7 +1,7 @@
 import { json } from "@/lib/api/http"
 import type { TracksResponse } from "@/lib/api/types"
 
-export const revalidate = 3600
+export const dynamic = "force-dynamic"
 
 /**
  * Static track manifest. The audio + cover files are served as static assets

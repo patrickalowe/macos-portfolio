@@ -16,6 +16,7 @@ import {
   AlertCircle,
   RotateCcw,
   Loader2,
+  ExternalLink,
 } from "lucide-react"
 import { useApi } from "@/hooks/use-api"
 import type { Track, TracksResponse } from "@/lib/api/types"
@@ -32,6 +33,8 @@ interface AccentConfig {
   color: string
   /** subtle wash behind the now-playing artwork */
   wash: string
+  /** optional link to the owner's profile on the service */
+  profileUrl?: string
 }
 
 const ACCENTS: Record<MediaAccent, AccentConfig> = {
@@ -40,6 +43,7 @@ const ACCENTS: Record<MediaAccent, AccentConfig> = {
     logo: "/spotify.png",
     color: "#1db954",
     wash: "from-[#1db954]/25 via-[#1db954]/5 to-transparent",
+    profileUrl: "https://open.spotify.com/user/12137031642",
   },
   apple: {
     name: "Music",
@@ -297,15 +301,29 @@ export default function MediaPlayer({ accent }: MediaPlayerProps) {
         <img src={cfg.logo || "/placeholder.svg"} alt="" aria-hidden="true" className="h-6 w-6 rounded-control" />
         <h1 className="text-sm font-semibold text-foreground">{cfg.name}</h1>
       </div>
-      {isMock && (
-        <span
-          className="glass-thin inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-medium text-muted-foreground"
-          title="Served from realistic fallback data"
-        >
-          <span className="h-1.5 w-1.5 rounded-full" style={{ background: cfg.color }} aria-hidden="true" />
-          Demo data
-        </span>
-      )}
+      <div className="flex items-center gap-2">
+        {isMock && (
+          <span
+            className="glass-thin inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11px] font-medium text-muted-foreground"
+            title="Served from realistic fallback data"
+          >
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: cfg.color }} aria-hidden="true" />
+            Demo data
+          </span>
+        )}
+        {cfg.profileUrl && (
+          <a
+            href={cfg.profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lg-focus inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold text-white outline-none transition-opacity hover:opacity-90"
+            style={{ background: cfg.color }}
+          >
+            <ExternalLink className="h-3.5 w-3.5" />
+            Open in {cfg.name}
+          </a>
+        )}
+      </div>
     </header>
   )
 

@@ -1,0 +1,15 @@
+export interface AppWindow {
+  id: string
+  title: string
+  component: string
+  position: { x: number; y: number }
+  size: { width: number; height: number }
+  minimized?: boolean
+}
+
+export interface DesktopRect {
+  top: number
+  left: number
+  width: number
+  height: number
+}

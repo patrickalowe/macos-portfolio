@@ -1,0 +1,23 @@
+
+.DS_Store
+.env*
+.next
+.pnpm-debug.log*
+.vercel
+*.tsbuildinfo
+/.next/
+/build
+/node_modules
+/out/
+# debug
+# dependencies
+# env files
+# next.js
+# production
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# typescript
+# vercel
+next-env.d.tsnode_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

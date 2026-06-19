@@ -1,0 +1,52 @@
+[
+  {
+    "id": "about",
+    "title": "About Me",
+    "preview": "Frontend developer & UI/UX designer crafting interfaces that feel inevitable.",
+    "body": "# Daniel Prior\n\nFrontend developer & UI/UX designer based in Copenhagen. I build beautiful, fast, accessible web apps — and I sweat the details most people never notice.\n\nMy work lives at the seam between **design and engineering**. I'm equally at home pushing pixels in Figma and pushing commits in a Next.js codebase, which means the thing in your browser actually matches the thing in the mockup.\n\n## What I care about\n\n- **Craft.** Motion that respects easing curves. Type that breathes. States that are all designed, not just the happy path.\n- **Performance.** Accessibility and 60fps aren't features you bolt on later — they're the foundation.\n- **Systems.** I'd rather build the tokens, the primitives and the rhythm once, then compose forever.\n\nRight now I'm deep in **Liquid Glass** interfaces, design systems, and making the web feel as considered as native.\n\n> If it doesn't feel right, it isn't done.",
+    "folder": "Personal",
+    "pinned": true,
+    "updatedAt": "2026-06-17T09:24:00.000Z"
+  },
+  {
+    "id": "stack",
+    "title": "My Stack",
+    "preview": "React · Next.js · TypeScript · Tailwind · Node · Postgres",
+    "body": "## My Stack\n\nThe tools I reach for, and why.\n\n### Frontend\n- **React 19** — the mental model I think in\n- **Next.js (App Router)** — Server Components, streaming, the works\n- **TypeScript** — strict mode, no `any`, narrow at the boundaries\n- **Tailwind CSS** — design tokens as a language, not utility soup\n- **Framer Motion** — choreography, not decoration\n\n### Backend & Data\n- **Node / Edge runtimes** — route handlers, streaming responses\n- **PostgreSQL + Supabase** — relational by default\n- **Zod** — validate everything that crosses a wire\n\n### Design & Tooling\n- **Figma** — variables, auto-layout, real component libraries\n- **Vite / Turbopack** — fast feedback loops\n- **GitHub Actions + Vercel** — ship small, ship often\n\nFavourite rule of thumb: *if I can delete a dependency, I will.*",
+    "folder": "Work",
+    "pinned": true,
+    "updatedAt": "2026-06-14T16:02:00.000Z"
+  },
+  {
+    "id": "projects",
+    "title": "Selected Projects",
+    "preview": "A few things I'm proud of — from a Liquid Glass UI kit to this very desktop.",
+    "body": "## Selected Projects\n\n### macOS Tahoe Portfolio\nThis site. A pixel-faithful recreation of macOS 26 in the browser — a real window manager, dock, Control Center, Spotlight, and apps backed by **live APIs** (GitHub, weather, a working file browser over the actual repo). Built with Next.js 15, React 19 and a hand-rolled Liquid Glass material system.\n\n### Liquid Glass UI\nAn open-source React component library that captures Apple's translucent material — frosted blur, specular rim light, vibrancy labels — as composable primitives. Theming via CSS variables, zero runtime cost.\n\n### Edge Agents\nServerless infrastructure for running AI agents at the edge: streaming tool-calls, durable state, and a typed plugin API. The part nobody sees that makes the part everybody sees feel instant.\n\n### Studio Site Redesigns\nA handful of marketing and product sites where I owned design *and* build end to end — shaving load times, lifting conversion, and leaving a design system the team could keep using.\n\n_More on GitHub and in the Mail app — say hi._",
+    "folder": "Work",
+    "updatedAt": "2026-06-12T11:47:00.000Z"
+  },
+  {
+    "id": "now",
+    "title": "Now",
+    "preview": "What I'm focused on this season — glass interfaces, RSC, and shipping.",
+    "body": "## Now\n\nA snapshot of where my attention is this season.\n\n- 🪟 Refining the **Liquid Glass** material language — getting blur, tint and rim light to read correctly in both light and dark without a single hardcoded colour.\n- ⚡ Going deep on **React Server Components** and streaming UIs — figuring out the right seams between server and client.\n- ♿ Treating **accessibility as a design constraint** from the first sketch, not an audit at the end.\n- ✍️ Writing more about the **craft layer** — the stuff between \"it works\" and \"it feels right.\"\n- 🌍 Open to select **freelance and collaboration** work for teams who care about the details.\n\n_Last updated whenever this felt true._",
+    "folder": "Personal",
+    "updatedAt": "2026-06-16T20:15:00.000Z"
+  },
+  {
+    "id": "contact",
+    "title": "Contact",
+    "preview": "Let's build something worth shipping.",
+    "body": "## Get in touch\n\nGot a project, a role, or just want to talk shop? I'm easy to reach.\n\n- **Email** — mail@danielprior.dk\n- **GitHub** — github.com/daprior\n- **LinkedIn** — /in/daniel-prior\n- **Web** — danielprior.dev\n\nFastest path: open the **Mail** app on this desktop and reply to my welcome message. It actually reaches me.\n\n_Best for: frontend builds, design systems, UI/UX work, and the occasional Liquid Glass rabbit hole._",
+    "folder": "Personal",
+    "updatedAt": "2026-06-10T08:33:00.000Z"
+  },
+  {
+    "id": "reading",
+    "title": "Reading List",
+    "preview": "Books, essays and talks shaping how I think about design and code.",
+    "body": "## Reading List\n\nThe stuff I keep coming back to.\n\n### Design\n- **Refactoring UI** — Wathan & Schoger. The fastest way to make ugly things less ugly.\n- **The Design of Everyday Things** — Norman. Affordances, signifiers, and why doors are hard.\n- **Designing Interfaces** — Tidwell. A pattern vocabulary that still holds up.\n\n### Engineering\n- **A Philosophy of Software Design** — Ousterhout. Deep modules, shallow interfaces.\n- **Patterns.dev** — modern React & web patterns, free online.\n- The **React** and **Next.js** docs — genuinely some of the best technical writing around.\n\n### Talks worth an hour\n- *Inventing on Principle* — Bret Victor\n- *The Web Aesthetic* — on designing with the grain of the medium\n\n### Currently reading\n- **Tidy First?** — Kent Beck. Small, safe, reversible changes. My kind of book.",
+    "folder": "Personal",
+    "updatedAt": "2026-06-08T19:05:00.000Z"
+  }
+]

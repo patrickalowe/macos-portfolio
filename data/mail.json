@@ -1,0 +1,75 @@
+[
+  {
+    "id": "m1",
+    "from": { "name": "Daniel Prior", "email": "mail@danielprior.dk" },
+    "subject": "Welcome to my portfolio 👋",
+    "preview": "Thanks for stopping by — here's how to reach me and what I'm working on.",
+    "body": "Hi there,\n\nThanks for exploring this macOS Tahoe portfolio. Every app here is real: live GitHub data, live weather, a working file browser over the actual repo, and Mail you're reading right now.\n\nI'm a frontend developer and UI/UX designer who sweats the details — Liquid Glass, motion, accessibility, the works. If you'd like to build something together, just hit reply and I'll get back to you within a day.\n\n— Daniel\nmail@danielprior.dk · danielprior.dev",
+    "date": "2026-06-18T08:14:00.000Z",
+    "read": false,
+    "starred": true,
+    "mailbox": "Inbox"
+  },
+  {
+    "id": "m2",
+    "from": { "name": "GitHub", "email": "noreply@github.com" },
+    "subject": "[daprior/danielprior-macos] New star milestone reached",
+    "preview": "Your repository danielprior-macos just passed 180 stars this week.",
+    "body": "Nice work!\n\ndaprior/danielprior-macos crossed 180 stars this week, with 14 new stargazers and 3 new forks. Here's a recap of recent activity:\n\n• 7 pushes to main\n• 2 pull requests merged\n• 1 new issue opened\n\nKeep building — your community is growing.\n\nThe GitHub Team",
+    "date": "2026-06-17T15:42:00.000Z",
+    "read": false,
+    "mailbox": "Inbox"
+  },
+  {
+    "id": "m3",
+    "from": { "name": "Vercel", "email": "notifications@vercel.com" },
+    "subject": "Deployment ready: danielprior-macos",
+    "preview": "Your latest production deployment is live and serving traffic.",
+    "body": "Deployment succeeded ✅\n\nProject: danielprior-macos\nEnvironment: Production\nCommit: feat: liquid glass control center\nBuild time: 38s\nRegion: iad1\n\nYour deployment is now live at https://danielprior.dev. View the build logs and analytics in your Vercel dashboard.\n\n— Vercel",
+    "date": "2026-06-16T21:05:00.000Z",
+    "read": true,
+    "mailbox": "Inbox"
+  },
+  {
+    "id": "m4",
+    "from": { "name": "Priya Nair", "email": "priya.nair@northwind.io" },
+    "subject": "Senior Frontend Engineer — Northwind (intro)",
+    "preview": "Came across your portfolio and the Liquid Glass work blew me away.",
+    "body": "Hi Daniel,\n\nI'm a technical recruiter at Northwind, and I came across your macOS portfolio — the attention to detail in the Liquid Glass interfaces genuinely stopped me in my tracks.\n\nWe're hiring a Senior Frontend Engineer to lead the design-systems track on our product team. It's a remote-first role (we're CET-friendly), React/Next.js/TypeScript, with real ownership over the component library.\n\nWould you be open to a 20-minute intro call next week? Happy to work around your schedule.\n\nBest,\nPriya Nair\nTalent · Northwind",
+    "date": "2026-06-15T10:27:00.000Z",
+    "read": false,
+    "starred": true,
+    "mailbox": "Inbox"
+  },
+  {
+    "id": "m5",
+    "from": { "name": "LinkedIn", "email": "notifications-noreply@linkedin.com" },
+    "subject": "You appeared in 27 searches this week",
+    "preview": "Recruiters and engineers found your profile — see who's looking.",
+    "body": "Hi Daniel,\n\nYour profile showed up in 27 searches this week, up 40% from last week. Most searchers work in Software Development and Design, at companies like Northwind, Figma, and Vercel.\n\n• 9 profile views\n• 27 search appearances\n• 4 new connection requests\n\nUpdate your headline to keep showing up in the right searches.\n\nThe LinkedIn Team",
+    "date": "2026-06-14T07:50:00.000Z",
+    "read": true,
+    "mailbox": "Inbox"
+  },
+  {
+    "id": "m6",
+    "from": { "name": "Marcus Bell", "email": "marcus@studioatlas.co" },
+    "subject": "Re: Freelance — landing page refresh",
+    "preview": "Looks great. One small tweak on the hero animation and we're good to ship.",
+    "body": "Hey Daniel,\n\nReviewed the staging build — it looks fantastic. The team loved the scroll-driven hero.\n\nOne small tweak: can we slow the hero animation by ~150ms so the headline lands before the gradient settles? Other than that, we're ready to ship Friday.\n\nInvoice approved on our end — finance will process this week.\n\nCheers,\nMarcus\nStudio Atlas",
+    "date": "2026-06-12T16:33:00.000Z",
+    "read": true,
+    "starred": false,
+    "mailbox": "Inbox"
+  },
+  {
+    "id": "m7",
+    "from": { "name": "Frontend Focus", "email": "newsletter@frontendfoc.us" },
+    "subject": "Frontend Focus #642 — Container queries, View Transitions & more",
+    "preview": "This week: the State of CSS 2026, View Transitions in the wild, and a deep dive on signals.",
+    "body": "Frontend Focus #642\n\nIn this issue:\n\n• The State of CSS 2026 results are in — container queries hit 90% adoption\n• View Transitions API: production patterns from three large sites\n• A practical guide to fine-grained reactivity with signals\n• 5 new open-source UI libraries worth a look\n• Job board: 18 new frontend roles\n\nRead the full issue online. You're receiving this because you subscribed at frontendfoc.us.",
+    "date": "2026-06-11T09:00:00.000Z",
+    "read": true,
+    "mailbox": "Inbox"
+  }
+]

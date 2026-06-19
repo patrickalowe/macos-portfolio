@@ -44,6 +44,40 @@ interface GeoResult {
   longitude: number
 }
 
+/** Reverse-geocode coordinates to a place name (Open-Meteo is forward-only).
+ * Uses Nominatim (OSM) — keyless, works server-side with a User-Agent. Returns {} on failure. */
+async function reverseGeocode(
+  lat: number,
+  lon: number,
+  signal: AbortSignal,
+): Promise<{ name?: string; country?: string }> {
+  try {
+    const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&zoom=10&addressdetails=1`
+    const res = await fetch(url, {
+      signal,
+      headers: { "User-Agent": "apple-techie-macos/1.0 (https://appletechie.dev)" },
+    })
+    if (!res.ok) return {}
+    const b = (await res.json()) as {
+      name?: string
+      address?: {
+        city?: string
+        town?: string
+        village?: string
+        county?: string
+        state?: string
+        country?: string
+        country_code?: string
+      }
+    }
+    const a = b.address ?? {}
+    const name = a.city || a.town || a.village || a.county || b.name || a.state || undefined
+    return { name, country: a.country || (a.country_code ? a.country_code.toUpperCase() : undefined) }
+  } catch {
+    return {}
+  }
+}
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
   const city = searchParams.get("city")?.trim() || ""
@@ -82,8 +116,9 @@ export async function GET(req: NextRequest) {
         }
         lat = latNum
         lon = lonNum
-        name = `${latNum.toFixed(2)}, ${lonNum.toFixed(2)}`
-        country = undefined
+        const rev = await reverseGeocode(latNum, lonNum, signal)
+        name = rev.name || `${latNum.toFixed(2)}, ${lonNum.toFixed(2)}`
+        country = rev.country
       }
 
       const wUrl = new URL(env.weatherBase)

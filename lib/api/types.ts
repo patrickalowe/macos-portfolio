@@ -163,3 +163,25 @@ export interface FsFileResponse {
   truncated: boolean
 }
 export type FsResponse = FsDirResponse | FsFileResponse
+
+/* --------------------------------------------------------------- spotify -- */
+export interface SpotifyTrack {
+  title: string
+  artist: string
+  album?: string
+  albumArt?: string
+  url: string
+  durationMs?: number
+  progressMs?: number
+  playedAt?: string
+}
+export interface SpotifyResponse {
+  /** false when no Spotify credentials are configured on the server */
+  configured: boolean
+  isPlaying: boolean
+  /** the now-playing track, or the most recently played when nothing is live */
+  track: SpotifyTrack | null
+  recent: SpotifyTrack[]
+  profileUrl: string
+  updatedAt: string
+}

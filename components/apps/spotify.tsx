@@ -1,11 +1,11 @@
 "use client"
 
-import MediaPlayer from "./media-player"
+import SpotifyNowPlaying from "./spotify-now-playing"
 
 interface SpotifyProps {
   isDarkMode?: boolean
 }
 
-export default function Spotify({ isDarkMode }: SpotifyProps) {
-  return <MediaPlayer accent="spotify" isDarkMode={isDarkMode} />
+export default function Spotify(_props: SpotifyProps) {
+  return <SpotifyNowPlaying />
 }

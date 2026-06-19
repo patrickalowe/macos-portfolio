@@ -49,6 +49,7 @@ async function getAccessToken(signal: AbortSignal): Promise<string | null> {
 export async function GET() {
   const base: SpotifyResponse = {
     configured: hasSpotifyAuth(),
+    available: false,
     isPlaying: false,
     track: null,
     recent: [],
@@ -66,15 +67,23 @@ export async function GET() {
       if (!token) return base
       const auth = { Authorization: `Bearer ${token}` }
 
-      // Currently playing (204 = nothing playing)
+      // `available` flips true only when an endpoint authorizes us. A 401/403
+      // (e.g. Spotify's "Premium required for the app owner") leaves it false
+      // so the UI shows the profile card instead of an empty "Nothing playing".
+      let available = false
+
+      // Currently playing (200 = playing, 204 = nothing playing — both authorized)
       const nowRes = await fetch(NOW_PLAYING_URL, { headers: auth, signal })
       let nowTrack: SpotifyTrack | null = null
       let isPlaying = false
-      if (nowRes.status === 200) {
-        const nb = (await nowRes.json()) as { is_playing?: boolean; progress_ms?: number; item?: SpotifyApiTrack }
-        if (nb.item) {
-          nowTrack = mapTrack(nb.item, { progressMs: nb.progress_ms })
-          isPlaying = Boolean(nb.is_playing)
+      if (nowRes.status === 200 || nowRes.status === 204) {
+        available = true
+        if (nowRes.status === 200) {
+          const nb = (await nowRes.json()) as { is_playing?: boolean; progress_ms?: number; item?: SpotifyApiTrack }
+          if (nb.item) {
+            nowTrack = mapTrack(nb.item, { progressMs: nb.progress_ms })
+            isPlaying = Boolean(nb.is_playing)
+          }
         }
       }
 
@@ -82,6 +91,7 @@ export async function GET() {
       let recent: SpotifyTrack[] = []
       const recentRes = await fetch(RECENT_URL, { headers: auth, signal })
       if (recentRes.ok) {
+        available = true
         const rb = (await recentRes.json()) as { items?: { track: SpotifyApiTrack; played_at: string }[] }
         recent = (rb.items ?? [])
           .map((i) => mapTrack(i.track, { playedAt: i.played_at }))
@@ -89,7 +99,7 @@ export async function GET() {
       }
 
       const track = nowTrack ?? recent[0] ?? null
-      return { ...base, isPlaying, track, recent, updatedAt: new Date().toISOString() }
+      return { ...base, available, isPlaying, track, recent, updatedAt: new Date().toISOString() }
     }, 6000)
 
     return json(payload, "live")

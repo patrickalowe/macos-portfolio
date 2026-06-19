@@ -110,8 +110,10 @@ export default function SpotifyNowPlaying() {
     )
   }
 
-  // Not connected — honest empty state (no fake "now playing").
-  if (!data?.configured) {
+  // No credentials, or the Spotify API is unreachable/blocked — degrade to the
+  // profile card. Never a fake or empty-looking "now playing".
+  if (!data?.configured || !data?.available) {
+    const connectedButBlocked = Boolean(data?.configured) && !data?.available
     return (
       <div className="flex h-full flex-col bg-background text-foreground">
         <Header profileUrl={profileUrl} live={false} />
@@ -120,9 +122,13 @@ export default function SpotifyNowPlaying() {
             <Music2 className="h-9 w-9" style={{ color: GREEN }} strokeWidth={1.5} />
           </div>
           <div>
-            <p className="text-base font-semibold">Spotify isn’t connected yet</p>
+            <p className="text-base font-semibold">
+              {connectedButBlocked ? "Spotify is taking a breather" : "Spotify isn’t connected yet"}
+            </p>
             <p className="mx-auto mt-1 max-w-xs text-sm text-muted-foreground">
-              Add Spotify API credentials to show what I’m currently listening to. For now, here’s the profile.
+              {connectedButBlocked
+                ? "Can’t reach the Spotify API right now — here’s my profile in the meantime."
+                : "Add Spotify API credentials to show what I’m currently listening to. For now, here’s the profile."}
             </p>
           </div>
           <a href={profileUrl} target="_blank" rel="noopener noreferrer" className="lg-focus inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-white outline-none" style={{ background: GREEN }}>

@@ -178,6 +178,14 @@ export interface SpotifyTrack {
 export interface SpotifyResponse {
   /** false when no Spotify credentials are configured on the server */
   configured: boolean
+  /**
+   * true only when the Spotify Web API was actually reachable AND authorized
+   * for this account. Stays false when credentials are missing, the token
+   * refresh fails, or upstream returns an auth error (e.g. Spotify's
+   * "Premium required for the app owner" 403). The UI degrades to the profile
+   * card whenever this is false, so a blocked upstream never looks broken.
+   */
+  available: boolean
   isPlaying: boolean
   /** the now-playing track, or the most recently played when nothing is live */
   track: SpotifyTrack | null

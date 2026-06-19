@@ -1,11 +1,10 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: 'Daniel Prior | macOS Portfolio',
-  description: 'An interactive macOS Tahoe desktop, rebuilt in the browser — portfolio of Daniel Prior.',
+  title: 'apple-techie | macOS Portfolio',
+  description: 'An interactive macOS Tahoe desktop, rebuilt in the browser — portfolio of apple-techie.',
   generator: 'Next.js',
 }
 
@@ -55,7 +54,6 @@ export default function RootLayout({
             </filter>
           </svg>
           {children}
-          <Analytics />
         </ThemeProvider>
       </body>
     </html>

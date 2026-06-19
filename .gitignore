@@ -21,3 +21,9 @@ next-env.d.tsnode_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# vinext / cloudflare workers build output
+/dist
+.vinext
+.wrangler
+.open-next

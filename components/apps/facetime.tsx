@@ -27,8 +27,8 @@ type CallError = {
   message: string
 }
 
-const CONTACT_NAME = "Daniel Prior"
-const CONTACT_HANDLE = "daniel@prior.design"
+const CONTACT_NAME = "apple-techie"
+const CONTACT_HANDLE = "mail@appletechie.dev"
 const CONTACT_INITIALS = "DP"
 
 function formatDuration(totalSeconds: number) {

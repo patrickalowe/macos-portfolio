@@ -37,7 +37,7 @@ export async function GET(req: NextRequest) {
   try {
     const headers: Record<string, string> = {
       Accept: "application/vnd.github+json",
-      "User-Agent": "danielprior-macos",
+      "User-Agent": "apple-techie-macos",
       ...(hasGithubAuth() ? { Authorization: "Bearer " + env.githubToken } : {}),
     }
 

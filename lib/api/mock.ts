@@ -31,7 +31,7 @@ function isoDaysAgo(days: number): string {
 /* ----------------------------------------------------------------- system -- */
 export function mockSystem(): SystemResponse {
   return {
-    device: { name: "Daniel's MacBook Pro", chip: "Apple M3 Pro", platform: "darwin", arch: "arm64", cpuCount: 12 },
+    device: { name: "apple-techie's MacBook Pro", chip: "Apple M3 Pro", platform: "darwin", arch: "arm64", cpuCount: 12 },
     memory: { totalGb: 36, freeGb: 12 },
     os: { release: "26.0", nodeVersion: "v22.0.0", nextVersion: "15.2.4" },
     build: { commit: "local", builtAt: new Date().toISOString(), env: "development" },
@@ -57,7 +57,7 @@ export function mockNotes(): NotesResponse {
         id: "about",
         title: "About Me",
         preview: "Frontend developer & UI/UX designer crafting delightful web experiences.",
-        body: "# Daniel Prior\n\nFrontend developer & UI/UX designer. I build beautiful, responsive, accessible web apps with React, Next.js and TypeScript — and I sweat the details.\n\nCurrently exploring Liquid Glass interfaces and design systems.",
+        body: "# apple-techie\n\nFrontend developer & UI/UX designer. I build beautiful, responsive, accessible web apps with React, Next.js and TypeScript — and I sweat the details.\n\nCurrently exploring Liquid Glass interfaces and design systems.",
         folder: "Personal",
         pinned: true,
         updatedAt: isoDaysAgo(1),
@@ -74,7 +74,7 @@ export function mockNotes(): NotesResponse {
         id: "contact",
         title: "Contact",
         preview: "Let's build something.",
-        body: "## Get in touch\n\n- Email: mail@danielprior.dk\n- GitHub: github.com/daprior\n- LinkedIn: /in/daniel-prior\n- Web: danielprior.dev",
+        body: "## Get in touch\n\n- Email: mail@appletechie.dev\n- GitHub: github.com/apple-techie\n- X: x.com/apple_techie\n- Instagram: instagram.com/appletechie\n- Web: appletechie.dev",
         folder: "Personal",
         updatedAt: isoDaysAgo(9),
       },
@@ -87,10 +87,10 @@ export function mockMail(): MailResponse {
   const messages = [
     {
       id: "m1",
-      from: { name: "Daniel Prior", email: "mail@danielprior.dk" },
+      from: { name: "apple-techie", email: "mail@appletechie.dev" },
       subject: "Welcome to my portfolio 👋",
       preview: "Thanks for stopping by — here's how to reach me and what I'm working on.",
-      body: "Hi there,\n\nThanks for exploring this macOS Tahoe portfolio. Every app here is real: live GitHub data, live weather, a working file browser over the actual repo, and more.\n\nWant to work together? Just reply.\n\n— Daniel",
+      body: "Hi there,\n\nThanks for exploring this macOS Tahoe portfolio. Every app here is real: live GitHub data, live weather, a working file browser over the actual repo, and more.\n\nWant to work together? Just reply.\n\n— apple-techie",
       date: isoDaysAgo(0),
       read: false,
       starred: true,
@@ -141,7 +141,7 @@ function mockContributions() {
 
 export function mockGithub(user: string): GithubResponse {
   const repos = [
-    { name: "danielprior-macos", description: "macOS Tahoe portfolio rebuilt in the browser", language: "TypeScript", stars: 184, forks: 22 },
+    { name: "apple-techie-macos", description: "macOS Tahoe portfolio rebuilt in the browser", language: "TypeScript", stars: 184, forks: 22 },
     { name: "liquid-glass-ui", description: "A Liquid Glass component library for React", language: "TypeScript", stars: 96, forks: 8 },
     { name: "edge-agents", description: "Serverless AI agent infrastructure", language: "TypeScript", stars: 61, forks: 5 },
     { name: "dotfiles", description: "My terminal & editor setup", language: "Shell", stars: 34, forks: 3 },
@@ -155,8 +155,8 @@ export function mockGithub(user: string): GithubResponse {
   return {
     profile: {
       login: user,
-      name: "Daniel Prior",
-      avatarUrl: "/letter-d.png",
+      name: "apple-techie",
+      avatarUrl: "/github.png",
       bio: "Frontend developer & UI/UX designer",
       followers: 248,
       following: 73,

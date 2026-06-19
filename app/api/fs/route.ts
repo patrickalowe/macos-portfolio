@@ -1,97 +1,65 @@
-import fs from "node:fs/promises"
-import path from "node:path"
 import type { NextRequest } from "next/server"
 import { json, jsonError } from "@/lib/api/http"
-import { resolveSafe, languageForFile } from "@/lib/api/safe-path"
 import type { FsDirResponse, FsEntry, FsFileResponse } from "@/lib/api/types"
+import snapshot from "@/lib/api/fs-snapshot.json"
 
-export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
-const MAX_FILE_BYTES = 256 * 1024
+type SnapFile = { size: number; language: string; content: string; truncated?: boolean }
+const FILES = (snapshot as { files: Record<string, SnapFile> }).files
+const PATHS = Object.keys(FILES)
+
+/** Normalize a requested path; returns null if it tries to escape. */
+function normalize(p: string): string | null {
+  const s = (p || ".").replace(/\\/g, "/").replace(/^\.?\/+/, "").replace(/\/+$/, "")
+  if (s === "" || s === ".") return ""
+  if (s.split("/").some((seg) => seg === "..")) return null
+  return s
+}
 
 export async function GET(req: NextRequest) {
-  const requested = req.nextUrl.searchParams.get("path") ?? "."
-  const safe = resolveSafe(requested)
-  if (!safe.ok) {
-    return jsonError(403, safe.reason ?? "Forbidden")
-  }
+  const norm = normalize(req.nextUrl.searchParams.get("path") ?? ".")
+  if (norm === null) return jsonError(403, "Path is not accessible")
 
-  try {
-    const stats = await fs.stat(safe.abs)
-
-    if (stats.isDirectory()) {
-      const dirents = await fs.readdir(safe.abs, { withFileTypes: true })
-      const entries: FsEntry[] = []
-
-      for (const dirent of dirents) {
-        const childRel = path.join(safe.rel === "." ? "" : safe.rel, dirent.name)
-        const childSafe = resolveSafe(childRel)
-        if (!childSafe.ok) continue
-
-        const isDir = dirent.isDirectory()
-        const entry: FsEntry = {
-          name: dirent.name,
-          type: isDir ? "dir" : "file",
-          path: childSafe.rel,
-        }
-
-        if (!isDir) {
-          try {
-            const childStats = await fs.stat(childSafe.abs)
-            entry.size = childStats.size
-          } catch {
-            continue
-          }
-        }
-
-        entries.push(entry)
-      }
-
-      entries.sort((a, b) => {
-        if (a.type !== b.type) return a.type === "dir" ? -1 : 1
-        return a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
-      })
-
-      const payload: FsDirResponse = {
-        type: "dir",
-        path: safe.rel,
-        entries,
-      }
-      return json(payload, "live")
-    }
-
-    const size = stats.size
-    let content: string
-    let truncated = false
-
-    if (size > MAX_FILE_BYTES) {
-      const handle = await fs.open(safe.abs, "r")
-      try {
-        const buffer = Buffer.alloc(MAX_FILE_BYTES)
-        const { bytesRead } = await handle.read(buffer, 0, MAX_FILE_BYTES, 0)
-        content = buffer.subarray(0, bytesRead).toString("utf8")
-        truncated = true
-      } finally {
-        await handle.close()
-      }
-    } else {
-      content = await fs.readFile(safe.abs, "utf8")
-    }
-
+  // Exact file match
+  const file = FILES[norm]
+  if (file) {
     const payload: FsFileResponse = {
       type: "file",
-      path: safe.rel,
-      size,
-      language: languageForFile(path.basename(safe.abs)),
-      content,
-      truncated,
+      path: norm || ".",
+      size: file.size,
+      language: file.language,
+      content: file.content,
+      truncated: !!file.truncated,
     }
     return json(payload, "live")
-  } catch (err) {
-    if ((err as NodeJS.ErrnoException)?.code === "ENOENT") {
-      return jsonError(404, "Not found")
-    }
-    return jsonError(500, "Unable to read path")
   }
+
+  // Otherwise treat as a directory: collect immediate children from the snapshot
+  const prefix = norm === "" ? "" : `${norm}/`
+  const dirs = new Set<string>()
+  const childFiles: FsEntry[] = []
+
+  for (const p of PATHS) {
+    if (norm !== "" && !p.startsWith(prefix)) continue
+    const rest = norm === "" ? p : p.slice(prefix.length)
+    const slash = rest.indexOf("/")
+    if (slash === -1) {
+      childFiles.push({ name: rest, type: "file", path: p, size: FILES[p].size })
+    } else {
+      dirs.add(rest.slice(0, slash))
+    }
+  }
+
+  if (dirs.size === 0 && childFiles.length === 0) {
+    return jsonError(404, "Not found")
+  }
+
+  const entries: FsEntry[] = [
+    ...Array.from(dirs).map((d) => ({ name: d, type: "dir" as const, path: prefix + d })),
+    ...childFiles,
+  ].sort((a, b) => (a.type !== b.type ? (a.type === "dir" ? -1 : 1) : a.name.localeCompare(b.name, undefined, { sensitivity: "base" })))
+
+  const payload: FsDirResponse = { type: "dir", path: norm || ".", entries }
+  return json(payload, "live")
 }

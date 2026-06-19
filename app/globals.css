@@ -48,26 +48,27 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
 
     /* (B) Liquid Glass material — light */
-    --lg-blur-thin: 8px;
-    --lg-blur: 20px;
-    --lg-blur-thick: 32px;
-    --lg-blur-chrome: 24px;
-    --lg-saturate: 180%;
-    --lg-brightness-light: 1.08;
-    --lg-brightness-dark: 1.5;
+    /* Tahoe Liquid Glass is genuinely translucent — keep tints low, lean on blur */
+    --lg-blur-thin: 12px;
+    --lg-blur: 30px;
+    --lg-blur-thick: 44px;
+    --lg-blur-chrome: 32px;
+    --lg-saturate: 170%;
+    --lg-brightness-light: 1.04;
+    --lg-brightness-dark: 1.32;
 
-    --lg-tint: rgba(255, 255, 255, 0.55);
-    --lg-tint-thin: rgba(255, 255, 255, 0.40);
-    --lg-tint-thick: rgba(255, 255, 255, 0.72);
-    --lg-tint-clear: rgba(255, 255, 255, 0.12);
+    --lg-tint: rgba(255, 255, 255, 0.30);
+    --lg-tint-thin: rgba(255, 255, 255, 0.18);
+    --lg-tint-thick: rgba(255, 255, 255, 0.44);
+    --lg-tint-clear: rgba(255, 255, 255, 0.07);
 
-    --lg-highlight-top: rgba(255, 255, 255, 0.75);
-    --lg-rim: rgba(255, 255, 255, 0.55);
-    --lg-inner-shadow: rgba(0, 0, 0, 0.06);
+    --lg-highlight-top: rgba(255, 255, 255, 0.5);
+    --lg-rim: rgba(255, 255, 255, 0.26);
+    --lg-inner-shadow: rgba(0, 0, 0, 0.035);
 
-    --lg-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.10);
-    --lg-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
-    --lg-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.22);
+    --lg-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --lg-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
+    --lg-shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
 
     --lg-r-window: 20px;
     --lg-r-card: 16px;
@@ -128,19 +129,19 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* (B) Liquid Glass material — dark */
-    --lg-tint: rgba(30, 30, 32, 0.55);
-    --lg-tint-thin: rgba(30, 30, 32, 0.40);
-    --lg-tint-thick: rgba(22, 22, 24, 0.74);
-    --lg-tint-clear: rgba(0, 0, 0, 0.18);
+    /* (B) Liquid Glass material — dark (translucent, soft) */
+    --lg-tint: rgba(28, 28, 30, 0.42);
+    --lg-tint-thin: rgba(28, 28, 30, 0.28);
+    --lg-tint-thick: rgba(22, 22, 24, 0.55);
+    --lg-tint-clear: rgba(0, 0, 0, 0.12);
 
-    --lg-highlight-top: rgba(255, 255, 255, 0.28);
-    --lg-rim: rgba(255, 255, 255, 0.14);
-    --lg-inner-shadow: rgba(0, 0, 0, 0.30);
+    --lg-highlight-top: rgba(255, 255, 255, 0.16);
+    --lg-rim: rgba(255, 255, 255, 0.10);
+    --lg-inner-shadow: rgba(0, 0, 0, 0.22);
 
-    --lg-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.40);
-    --lg-shadow: 0 8px 24px rgba(0, 0, 0, 0.50);
-    --lg-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.62);
+    --lg-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.30);
+    --lg-shadow: 0 6px 20px rgba(0, 0, 0, 0.40);
+    --lg-shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.52);
 
     --lg-accent: #0a84ff;
     --lg-accent-press: #4aa3ff;
@@ -205,7 +206,7 @@
     border-radius: var(--lg-r-card);
     box-shadow:
       inset 0 1px 0 0 var(--lg-highlight-top),
-      inset 0 0 0 1px var(--lg-rim),
+      inset 0 0 0 0.5px var(--lg-rim),
       inset 0 -8px 16px -12px var(--lg-inner-shadow),
       var(--lg-shadow);
   }
@@ -217,7 +218,7 @@
     border-radius: var(--lg-r-menu);
     box-shadow:
       inset 0 1px 0 0 var(--lg-highlight-top),
-      inset 0 0 0 1px var(--lg-rim),
+      inset 0 0 0 0.5px var(--lg-rim),
       var(--lg-shadow-sm);
   }
 
@@ -228,7 +229,7 @@
     border-radius: var(--lg-r-tile);
     box-shadow:
       inset 0 1.5px 0 0 var(--lg-highlight-top),
-      inset 0 0 0 1px var(--lg-rim),
+      inset 0 0 0 0.5px var(--lg-rim),
       inset 0 -12px 24px -16px var(--lg-inner-shadow),
       var(--lg-shadow-lg);
   }
@@ -240,7 +241,7 @@
     border-radius: var(--lg-r-dock);
     box-shadow:
       inset 0 1px 0 0 var(--lg-highlight-top),
-      inset 0 0 0 1px var(--lg-rim),
+      inset 0 0 0 0.5px var(--lg-rim),
       var(--lg-shadow-lg);
   }
 
@@ -273,12 +274,12 @@
     z-index: 0;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(255, 255, 255, 0) 28%,
-      rgba(255, 255, 255, 0) 72%,
-      rgba(255, 255, 255, 0.18) 100%
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0) 74%,
+      rgba(255, 255, 255, 0.10) 100%
     );
-    opacity: 0.55;
+    opacity: 0.3;
     mix-blend-mode: screen;
     transition: opacity var(--lg-dur) var(--lg-ease-out);
   }
@@ -297,7 +298,7 @@
     transform: translateY(-1px);
   }
   .glass-interactive:hover::before {
-    opacity: 1;
+    opacity: 0.5;
   }
   .glass-interactive:active {
     transform: scale(0.97);

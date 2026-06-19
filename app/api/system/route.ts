@@ -3,7 +3,6 @@ import { json } from "@/lib/api/http"
 import { mockSystem } from "@/lib/api/mock"
 import type { SystemResponse } from "@/lib/api/types"
 
-export const runtime = "nodejs"
 export const dynamic = "force-dynamic"
 
 function round1(n: number): number {
@@ -22,9 +21,16 @@ function deriveChip(model: string | undefined, arch: string): string {
 
 export async function GET() {
   try {
-    const cpus = os.cpus()
-    const arch = os.arch()
+    const cpus = os.cpus?.() ?? []
+    const totalmem = os.totalmem?.() ?? 0
 
+    // On the Cloudflare Workers runtime node:os is stubbed/empty — serve
+    // representative data instead of zeros so the About panel still looks real.
+    if (!cpus.length || !totalmem) {
+      return json(mockSystem(), "mock")
+    }
+
+    const arch = os.arch()
     const payload: SystemResponse = {
       device: {
         name: os.hostname(),
@@ -34,7 +40,7 @@ export async function GET() {
         cpuCount: cpus.length,
       },
       memory: {
-        totalGb: round1(os.totalmem() / 1e9),
+        totalGb: round1(totalmem / 1e9),
         freeGb: round1(os.freemem() / 1e9),
       },
       os: {
@@ -43,12 +49,12 @@ export async function GET() {
         nextVersion: "15.2.4",
       },
       build: {
-        commit: process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || "local",
+        commit: process.env.CF_PAGES_COMMIT_SHA?.slice(0, 7) || process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || "local",
         builtAt: new Date().toISOString(),
-        env: process.env.NODE_ENV ?? "development",
+        env: process.env.NODE_ENV ?? "production",
       },
-      serverUptimeSec: Math.round(process.uptime()),
-      loadAvg: os.loadavg().map((n) => +n.toFixed(2)),
+      serverUptimeSec: Math.round(typeof process.uptime === "function" ? process.uptime() : 0),
+      loadAvg: (os.loadavg?.() ?? [0, 0, 0]).map((n) => +n.toFixed(2)),
     }
 
     return json(payload, "live")

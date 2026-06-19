@@ -25,7 +25,7 @@ interface Line {
   text: string
 }
 
-const PROMPT = "daniel@macbook ~ %"
+const PROMPT = "apple-techie@macbook ~ %"
 
 /** Result of a command handler: either ready-to-print lines, or an async job. */
 type HandlerResult =
@@ -170,13 +170,13 @@ function buildRegistry(): Map<string, Command> {
   register({
     name: "whoami",
     summary: "Print the current user",
-    handler: () => ({ lines: [out("daniel")] }),
+    handler: () => ({ lines: [out("apple-techie")] }),
   })
 
   register({
     name: "pwd",
     summary: "Print the working directory",
-    handler: () => ({ lines: [out("/Users/daniel")] }),
+    handler: () => ({ lines: [out("/Users/apple-techie")] }),
   })
 
   register({
@@ -195,7 +195,7 @@ function buildRegistry(): Map<string, Command> {
     summary: "A short bio",
     handler: () => ({
       lines: [
-        accent("Daniel Prior"),
+        accent("apple-techie"),
         dim("Frontend Developer & UI/UX Designer"),
         out(""),
         out("I build beautiful, responsive, accessible web apps with"),
@@ -227,10 +227,11 @@ function buildRegistry(): Map<string, Command> {
     summary: "How to reach me",
     handler: () => ({
       lines: [
-        out("email     mail@danielprior.dk"),
-        out("github    github.com/daprior"),
-        out("linkedin  linkedin.com/in/daniel-prior-53a679195"),
-        out("web       danielprior.dev"),
+        out("email      mail@appletechie.dev"),
+        out("github     github.com/apple-techie"),
+        out("x          x.com/apple_techie"),
+        out("instagram  instagram.com/appletechie"),
+        out("web        appletechie.dev"),
       ],
     }),
   })
@@ -246,7 +247,7 @@ function buildRegistry(): Map<string, Command> {
       }
       const facts: string[] = info
         ? [
-            `daniel@macbook`,
+            `apple-techie@macbook`,
             `──────────────`,
             `Host:    ${info.device.name}`,
             `Chip:    ${info.device.chip}`,
@@ -261,7 +262,7 @@ function buildRegistry(): Map<string, Command> {
             `Theme:   ${isDarkMode ? "dark" : "light"}`,
           ]
         : [
-            `daniel@macbook`,
+            `apple-techie@macbook`,
             `──────────────`,
             `Frontend Developer & UI/UX Designer`,
             `Stack:   Next.js · React · TypeScript`,
@@ -478,7 +479,7 @@ export default function Terminal({ isDarkMode }: TerminalProps) {
 
   const [lines, setLines] = useState<Line[]>(() => [
     { id: 0, kind: "dim", text: `Last login: ${new Date().toLocaleString()}` },
-    { id: 1, kind: "out", text: "Welcome to Daniel's terminal." },
+    { id: 1, kind: "out", text: "Welcome to apple-techie's terminal." },
     { id: 2, kind: "dim", text: "Type 'help' for a list of commands." },
     { id: 3, kind: "out", text: "" },
   ])

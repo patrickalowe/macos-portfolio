@@ -374,7 +374,7 @@ export default function VSCode({ isDarkMode = true }: VSCodeProps) {
         </div>
         <div className="flex items-center gap-1 px-3 pb-1 text-[11px] font-semibold uppercase tracking-wide text-foreground/70">
           <ChevronRight className="h-3 w-3 rotate-90" aria-hidden />
-          danielprior-macos
+          apple-techie-macos
         </div>
         <div className="min-h-0 flex-1 overflow-auto px-2 pb-3">
           {root.loading && !rootDir && <PaneSpinner label="Loading repository…" />}

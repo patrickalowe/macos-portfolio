@@ -529,7 +529,7 @@ function AppearancePane() {
 }
 
 const WIFI_NETWORKS = [
-  { name: "Daniel's Studio", secured: true, strength: 3 },
+  { name: "apple-techie's Studio", secured: true, strength: 3 },
   { name: "Tahoe Guest", secured: false, strength: 2 },
   { name: "Xfinity-7B2F", secured: true, strength: 2 },
   { name: "ATT-Fiber-104", secured: true, strength: 1 },
@@ -557,7 +557,7 @@ function WifiPane() {
 
   return (
     <div className="space-y-6">
-      <SectionHeader title="Wi-Fi" subtitle={wifiEnabled ? "Connected to Daniel's Studio" : "Wi-Fi is off"} />
+      <SectionHeader title="Wi-Fi" subtitle={wifiEnabled ? "Connected to apple-techie's Studio" : "Wi-Fi is off"} />
 
       <Card>
         <Row divider={false}>
@@ -600,7 +600,7 @@ function WifiPane() {
 }
 
 const BT_DEVICES = [
-  { name: "Daniel's AirPods Pro", kind: "audio", connected: true, battery: 82 },
+  { name: "apple-techie's AirPods Pro", kind: "audio", connected: true, battery: 82 },
   { name: "Magic Keyboard", kind: "keyboard", connected: true, battery: 64 },
   { name: "Apple Watch", kind: "watch", connected: false, battery: null as number | null },
   { name: "Magic Mouse", kind: "mouse", connected: false, battery: null as number | null },
@@ -618,7 +618,7 @@ function BluetoothPane() {
 
   return (
     <div className="space-y-6">
-      <SectionHeader title="Bluetooth" subtitle={bluetoothEnabled ? "Discoverable as “Daniel's Mac”" : "Bluetooth is off"} />
+      <SectionHeader title="Bluetooth" subtitle={bluetoothEnabled ? "Discoverable as “apple-techie's Mac”" : "Bluetooth is off"} />
 
       <Card>
         <Row divider={false}>

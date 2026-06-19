@@ -65,11 +65,6 @@ export const APPS: AppMeta[] = [
     keywords: ["music", "songs", "player", "audio", "playlist"],
   },
   {
-    id: "youtube", title: "YouTube", icon: "/youtube.png", component: "YouTube",
-    defaultSize: { width: 940, height: 620 }, inDock: true, dockOrder: 9, inLaunchpad: true,
-    keywords: ["video", "channel", "watch"],
-  },
-  {
     id: "facetime", title: "FaceTime", icon: "/facetime.png", component: "FaceTime",
     defaultSize: { width: 760, height: 560 }, inDock: false, inLaunchpad: true,
     keywords: ["video", "call", "camera"],

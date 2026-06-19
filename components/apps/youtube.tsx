@@ -8,7 +8,7 @@ interface YouTubeProps {
   isDarkMode?: boolean
 }
 
-const CHANNEL_URL = "https://www.youtube.com/@DanielPrior0"
+const CHANNEL_URL = "https://www.youtube.com/@apple-techie"
 
 interface Video {
   id: string
@@ -83,10 +83,10 @@ export default function YouTube({ isDarkMode = true }: YouTubeProps) {
             </div>
             <div className="pb-1">
               <h1 className="flex items-center gap-1.5 text-lg font-semibold leading-tight sm:text-xl">
-                Daniel Prior
+                apple-techie
               </h1>
               <p className="text-sm text-muted-foreground">
-                @DanielPrior0 · 42.1K subscribers · 128 videos
+                @apple-techie · 42.1K subscribers · 128 videos
               </p>
               <p className="mt-0.5 text-sm text-muted-foreground">
                 Frontend developer &amp; UI/UX designer. Building delightful, accessible interfaces.
@@ -181,7 +181,7 @@ export default function YouTube({ isDarkMode = true }: YouTubeProps) {
                       >
                         <span className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_0%,rgba(255,255,255,0.28),transparent_55%)]" />
                         <span className="lg-text-scrim absolute left-3 top-3 text-xs font-semibold uppercase tracking-wide">
-                          Daniel Prior
+                          apple-techie
                         </span>
                         <span className="absolute inset-0 grid place-items-center">
                           <span className="glass-chrome grid h-12 w-12 place-items-center rounded-full text-white transition-transform duration-200 ease-spring group-hover:scale-110">

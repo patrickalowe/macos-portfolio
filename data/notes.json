@@ -3,7 +3,7 @@
     "id": "about",
     "title": "About Me",
     "preview": "Frontend developer & UI/UX designer crafting interfaces that feel inevitable.",
-    "body": "# Daniel Prior\n\nFrontend developer & UI/UX designer based in Copenhagen. I build beautiful, fast, accessible web apps — and I sweat the details most people never notice.\n\nMy work lives at the seam between **design and engineering**. I'm equally at home pushing pixels in Figma and pushing commits in a Next.js codebase, which means the thing in your browser actually matches the thing in the mockup.\n\n## What I care about\n\n- **Craft.** Motion that respects easing curves. Type that breathes. States that are all designed, not just the happy path.\n- **Performance.** Accessibility and 60fps aren't features you bolt on later — they're the foundation.\n- **Systems.** I'd rather build the tokens, the primitives and the rhythm once, then compose forever.\n\nRight now I'm deep in **Liquid Glass** interfaces, design systems, and making the web feel as considered as native.\n\n> If it doesn't feel right, it isn't done.",
+    "body": "# apple-techie\n\nFrontend developer & UI/UX designer based in Copenhagen. I build beautiful, fast, accessible web apps — and I sweat the details most people never notice.\n\nMy work lives at the seam between **design and engineering**. I'm equally at home pushing pixels in Figma and pushing commits in a Next.js codebase, which means the thing in your browser actually matches the thing in the mockup.\n\n## What I care about\n\n- **Craft.** Motion that respects easing curves. Type that breathes. States that are all designed, not just the happy path.\n- **Performance.** Accessibility and 60fps aren't features you bolt on later — they're the foundation.\n- **Systems.** I'd rather build the tokens, the primitives and the rhythm once, then compose forever.\n\nRight now I'm deep in **Liquid Glass** interfaces, design systems, and making the web feel as considered as native.\n\n> If it doesn't feel right, it isn't done.",
     "folder": "Personal",
     "pinned": true,
     "updatedAt": "2026-06-17T09:24:00.000Z"
@@ -37,7 +37,7 @@
     "id": "contact",
     "title": "Contact",
     "preview": "Let's build something worth shipping.",
-    "body": "## Get in touch\n\nGot a project, a role, or just want to talk shop? I'm easy to reach.\n\n- **Email** — mail@danielprior.dk\n- **GitHub** — github.com/daprior\n- **LinkedIn** — /in/daniel-prior\n- **Web** — danielprior.dev\n\nFastest path: open the **Mail** app on this desktop and reply to my welcome message. It actually reaches me.\n\n_Best for: frontend builds, design systems, UI/UX work, and the occasional Liquid Glass rabbit hole._",
+    "body": "## Get in touch\n\nGot a project, a role, or just want to talk shop? I'm easy to reach.\n\n- **Email** — mail@appletechie.dev\n- **GitHub** — github.com/apple-techie\n- **X** — x.com/apple_techie\n- **Instagram** — instagram.com/appletechie\n- **Web** — appletechie.dev\n\nFastest path: open the **Mail** app on this desktop and reply to my welcome message. It actually reaches me.\n\n_Best for: frontend builds, design systems, UI/UX work, and the occasional Liquid Glass rabbit hole._",
     "folder": "Personal",
     "updatedAt": "2026-06-10T08:33:00.000Z"
   },

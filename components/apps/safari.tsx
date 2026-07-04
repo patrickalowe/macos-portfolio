@@ -18,12 +18,14 @@ interface SiteLink {
   icon?: string
   Icon?: React.ComponentType<{ className?: string }>
   iconWrap?: string
+  /** internal page to load in the mini browser instead of opening url in a new tab */
+  frameSrc?: string
 }
 
 /** Personal links — external profiles that block embedding, so they open in a new tab. */
 const socialLinks: SiteLink[] = [
   { title: "GitHub", url: "https://github.com/patrickalowe", icon: "/github.png" },
-  { title: "LinkedIn", url: "https://www.linkedin.com/in/patrickalowe", icon: "/linkedin.png" },
+  { title: "LinkedIn", url: "https://www.linkedin.com/in/patrickalowe", icon: "/linkedin.png", frameSrc: "/linkedin" },
   { title: "X", url: "https://x.com/GANDORK0125", icon: "/twitter-icon.png" },
   {
     title: "Instagram",
@@ -266,9 +268,13 @@ export default function Safari(_props: SafariProps) {
             <div className="mx-auto max-w-3xl px-8 py-10">
               <h2 className="mb-5 text-2xl font-bold tracking-tight">Favorites</h2>
               <div className="mb-12 grid grid-cols-4 gap-3 sm:grid-cols-6">
-                {socialLinks.map((link) => (
-                  <SiteTile key={link.title} site={link} />
-                ))}
+                {socialLinks.map((link) =>
+                  link.frameSrc ? (
+                    <SiteTile key={link.title} site={{ ...link, url: link.frameSrc }} onClick={loadUrl} />
+                  ) : (
+                    <SiteTile key={link.title} site={link} />
+                  ),
+                )}
               </div>
 
               <h2 className="mb-5 text-2xl font-bold tracking-tight">Quick Links</h2>

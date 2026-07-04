@@ -57,6 +57,15 @@ const quickLinks: { title: string; url: string }[] = [
   { title: "Open-Meteo", url: "https://open-meteo.com" },
 ]
 
+/** Tab label for a loaded URL. Handles internal relative paths ("/linkedin"), which URL() alone rejects. */
+function hostnameOf(url: string): string {
+  try {
+    return new URL(url, typeof window !== "undefined" ? window.location.origin : "https://localhost").hostname
+  } catch {
+    return url
+  }
+}
+
 /** Resolve address-bar input to a URL to load, or a search query to open externally. */
 function resolveInput(input: string): { url: string | null; search: string | null } {
   const t = input.trim()
@@ -223,7 +232,7 @@ export default function Safari(_props: SafariProps) {
       <div className="flex flex-shrink-0 items-center gap-1 border-b border-border/50 bg-background/40 px-2 py-1 backdrop-blur-md">
         <div className="flex h-7 max-w-[260px] items-center gap-2 rounded-[7px] bg-foreground/[0.07] px-3 text-[13px]">
           <Globe className="h-3.5 w-3.5 shrink-0 text-foreground/60" aria-hidden />
-          <span className="truncate text-foreground/90">{current ? new URL(current).hostname : "Start Page"}</span>
+          <span className="truncate text-foreground/90">{current ? hostnameOf(current) : "Start Page"}</span>
         </div>
         <button type="button" aria-label="New tab" className={cn(toolBtn, "h-7 w-7")} onClick={goHome}>
           <Plus className="h-4 w-4" />

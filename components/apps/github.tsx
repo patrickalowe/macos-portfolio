@@ -325,9 +325,8 @@ function ErrorState({ message, onRetry }: { message: string; onRetry: () => void
 /* ------------------------------------------------------------------- shell */
 
 export default function GitHub({ isDarkMode = true }: GitHubProps) {
-  const { data, error, loading, isMock, refetch } = useApi<GithubResponse>(
-    "/api/github?user=patrickalowe",
-  )
+  // No user param: the API defaults to env.githubUser (NEXT_PUBLIC_GITHUB_USER).
+  const { data, error, loading, isMock, refetch } = useApi<GithubResponse>("/api/github")
   const [avatarFailed, setAvatarFailed] = useState(false)
 
   if (loading && !data) return <LoadingState />

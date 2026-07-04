@@ -326,7 +326,7 @@ function ErrorState({ message, onRetry }: { message: string; onRetry: () => void
 
 export default function GitHub({ isDarkMode = true }: GitHubProps) {
   const { data, error, loading, isMock, refetch } = useApi<GithubResponse>(
-    "/api/github?user=apple-techie",
+    "/api/github?user=patrickalowe",
   )
   const [avatarFailed, setAvatarFailed] = useState(false)
 

@@ -177,39 +177,40 @@ export default function Weather({ isDarkMode: isDarkModeProp }: WeatherProps) {
   const { isDarkMode: isDarkModeSystem } = useSystem()
   const isDarkMode = isDarkModeProp ?? isDarkModeSystem
 
-  const [city, setCity] = useState("Copenhagen")
+  // Local weather is the default: an empty city means "the visitor's location".
+  // Precise browser coords take priority; otherwise the API geolocates the request by IP.
+  const [city, setCity] = useState("")
   const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
 
-  // Build the request URL: coords take priority once we have them.
   const url = useMemo(() => {
     if (coords) return `/api/weather?lat=${coords.lat}&lon=${coords.lon}`
-    return `/api/weather?city=${encodeURIComponent(city)}`
+    if (city) return `/api/weather?city=${encodeURIComponent(city)}`
+    return "/api/weather"
   }, [coords, city])
 
   const { data, error, loading, isMock, refetch } = useApi<WeatherResponse>(url, { pollMs: 600_000 })
 
-  // Attempt geolocation once on mount — non-blocking, feature-detected.
-  useEffect(() => {
+  // Non-blocking, feature-detected; on denial the IP-based location keeps working.
+  const requestGeolocation = useCallback(() => {
     if (typeof navigator === "undefined" || !navigator.geolocation) return
-    let cancelled = false
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        if (cancelled) return
         setCoords({
           lat: Number(pos.coords.latitude.toFixed(4)),
           lon: Number(pos.coords.longitude.toFixed(4)),
         })
       },
       () => {
-        /* denied / unavailable — keep the default city */
+        /* denied / unavailable — keep the IP-based local weather */
       },
       { enableHighAccuracy: false, timeout: 8000, maximumAge: 600_000 },
     )
-    return () => {
-      cancelled = true
-    }
   }, [])
+
+  useEffect(() => {
+    requestGeolocation()
+  }, [requestGeolocation])
 
   const handleSearch = useCallback(() => {
     const q = searchQuery.trim()
@@ -223,6 +224,12 @@ export default function Weather({ isDarkMode: isDarkModeProp }: WeatherProps) {
     setCoords(null)
     setCity(name)
   }, [])
+
+  const selectLocal = useCallback(() => {
+    setCity("")
+    setCoords(null)
+    requestGeolocation()
+  }, [requestGeolocation])
 
   /* ------------------------------------------------------------- canvas -- */
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -362,7 +369,7 @@ export default function Weather({ isDarkMode: isDarkModeProp }: WeatherProps) {
 
   /* --------------------------------------------------------------- view -- */
 
-  const usingLocation = Boolean(coords)
+  const usingLocation = coords !== null || city === ""
   const locationName = data
     ? `${data.location.name}${data.location.country ? `, ${data.location.country}` : ""}`
     : usingLocation
@@ -454,7 +461,7 @@ export default function Weather({ isDarkMode: isDarkModeProp }: WeatherProps) {
                   </p>
 
                   <div className="mt-4 flex items-center gap-4">
-                    <div className="text-6xl font-extralight tabular-nums">{data.current.tempC}°</div>
+                    <div className="text-6xl font-extralight tabular-nums">{data.current.tempF}°</div>
                     <div className="flex items-center gap-3">
                       <ConditionIcon
                         condition={data.current.condition}
@@ -463,7 +470,7 @@ export default function Weather({ isDarkMode: isDarkModeProp }: WeatherProps) {
                       <div>
                         <p className="text-lg leading-tight">{data.current.conditionLabel}</p>
                         <p className="text-sm text-muted-foreground">
-                          Feels like {data.current.feelsLikeC}°
+                          Feels like {data.current.feelsLikeF}°
                         </p>
                       </div>
                     </div>
@@ -480,13 +487,13 @@ export default function Weather({ isDarkMode: isDarkModeProp }: WeatherProps) {
                   <DetailTile
                     icon={<Wind className="h-4 w-4 text-teal-500" />}
                     label="Wind"
-                    value={`${data.current.windKph} km/h`}
+                    value={`${data.current.windMph} mph`}
                     tint="bg-teal-500/15"
                   />
                   <DetailTile
                     icon={<Thermometer className="h-4 w-4 text-rose-500" />}
                     label="Feels like"
-                    value={`${data.current.feelsLikeC}°`}
+                    value={`${data.current.feelsLikeF}°`}
                     tint="bg-rose-500/15"
                   />
                   <DetailTile
@@ -535,6 +542,18 @@ export default function Weather({ isDarkMode: isDarkModeProp }: WeatherProps) {
             <section>
               <h3 className="mb-3 text-sm font-semibold text-muted-foreground">Popular Cities</h3>
               <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={selectLocal}
+                  aria-pressed={usingLocation}
+                  className={cn(
+                    "glass-thin glass-interactive lg-focus flex items-center gap-1.5 rounded-control px-3.5 py-1.5 text-sm transition-colors",
+                    usingLocation && "glass-tint-accent text-foreground",
+                  )}
+                >
+                  <LocateFixed className="h-3.5 w-3.5" aria-hidden="true" />
+                  My Location
+                </button>
                 {POPULAR_CITIES.map((name) => {
                   const active = !usingLocation && city.toLowerCase() === name.toLowerCase()
                   return (

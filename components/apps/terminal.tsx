@@ -25,7 +25,7 @@ interface Line {
   text: string
 }
 
-const PROMPT = "apple-techie@macbook ~ %"
+const PROMPT = "patrickalowe@macbook ~ %"
 
 /** Result of a command handler: either ready-to-print lines, or an async job. */
 type HandlerResult =
@@ -170,13 +170,13 @@ function buildRegistry(): Map<string, Command> {
   register({
     name: "whoami",
     summary: "Print the current user",
-    handler: () => ({ lines: [out("apple-techie")] }),
+    handler: () => ({ lines: [out("patrickalowe")] }),
   })
 
   register({
     name: "pwd",
     summary: "Print the working directory",
-    handler: () => ({ lines: [out("/Users/apple-techie")] }),
+    handler: () => ({ lines: [out("/Users/patrickalowe")] }),
   })
 
   register({
@@ -195,7 +195,7 @@ function buildRegistry(): Map<string, Command> {
     summary: "A short bio",
     handler: () => ({
       lines: [
-        accent("apple-techie"),
+        accent("patrickalowe"),
         dim("Frontend Developer & UI/UX Designer"),
         out(""),
         out("I build beautiful, responsive, accessible web apps with"),
@@ -227,11 +227,11 @@ function buildRegistry(): Map<string, Command> {
     summary: "How to reach me",
     handler: () => ({
       lines: [
-        out("email      mail@appletechie.dev"),
-        out("github     github.com/apple-techie"),
-        out("x          x.com/apple_techie"),
-        out("instagram  instagram.com/appletechie"),
-        out("web        appletechie.dev"),
+        out("email      mail@patrickalowe.dev"),
+        out("github     github.com/patrickalowe"),
+        out("x          x.com/patrickalowe"),
+        out("instagram  instagram.com/patrickalowe"),
+        out("web        patrickalowe.dev"),
       ],
     }),
   })
@@ -247,7 +247,7 @@ function buildRegistry(): Map<string, Command> {
       }
       const facts: string[] = info
         ? [
-            `apple-techie@macbook`,
+            `patrickalowe@macbook`,
             `──────────────`,
             `Host:    ${info.device.name}`,
             `Chip:    ${info.device.chip}`,
@@ -262,7 +262,7 @@ function buildRegistry(): Map<string, Command> {
             `Theme:   ${isDarkMode ? "dark" : "light"}`,
           ]
         : [
-            `apple-techie@macbook`,
+            `patrickalowe@macbook`,
             `──────────────`,
             `Frontend Developer & UI/UX Designer`,
             `Stack:   Next.js · React · TypeScript`,
@@ -366,9 +366,9 @@ function buildRegistry(): Map<string, Command> {
           const lines: Omit<Line, "id">[] = [
             accent(`${loc}`),
             out(
-              `${c.tempC}°C  ${c.conditionLabel}  (feels ${c.feelsLikeC}°C)`,
+              `${c.tempF}°F  ${c.conditionLabel}  (feels ${c.feelsLikeF}°F)`,
             ),
-            out(`humidity ${c.humidity}%  ·  wind ${c.windKph} km/h`),
+            out(`humidity ${c.humidity}%  ·  wind ${c.windMph} mph`),
             out(`sunrise ${c.sunrise}  ·  sunset ${c.sunset}`),
           ]
           if (data.forecast.length) {
@@ -479,7 +479,7 @@ export default function Terminal({ isDarkMode }: TerminalProps) {
 
   const [lines, setLines] = useState<Line[]>(() => [
     { id: 0, kind: "dim", text: `Last login: ${new Date().toLocaleString()}` },
-    { id: 1, kind: "out", text: "Welcome to apple-techie's terminal." },
+    { id: 1, kind: "out", text: "Welcome to patrickalowe's terminal." },
     { id: 2, kind: "dim", text: "Type 'help' for a list of commands." },
     { id: 3, kind: "out", text: "" },
   ])

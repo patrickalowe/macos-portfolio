@@ -199,7 +199,7 @@ export default function Menubar({
               <DropdownMenuShortcut>⌃⌘Q</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem className={menuItemClass} onSelect={onLogout}>
-              Log Out apple-techie…
+              Log Out patrickalowe…
               <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuContent>
@@ -426,7 +426,7 @@ export default function Menubar({
                   </button>
                 </div>
                 <p className="lg-vibrant-secondary mt-2 text-[12px]">
-                  {wifiEnabled ? "Connected to “apple-techie’s Network”" : "Wi-Fi is turned off"}
+                  {wifiEnabled ? "Connected to “patrickalowe’s Network”" : "Wi-Fi is turned off"}
                 </p>
               </div>
             </>

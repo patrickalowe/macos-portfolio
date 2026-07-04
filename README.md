@@ -10,7 +10,7 @@ A stunning, interactive macOS-inspired portfolio website built with Next.js and 
 
 ## 👨‍💻 Demo
 
-Demo Link: [http://appletechie.dev](http://appletechie.dev)
+Demo Link: [http://patrickalowe.dev](http://patrickalowe.dev)
 
 ### ✨ Features
 
@@ -46,7 +46,7 @@ Demo Link: [http://appletechie.dev](http://appletechie.dev)
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/apple-techie/apple-techie-macos.git
+git clone https://github.com/patrickalowe/macos.git
 cd macos-portfolio
 
 2. Install 
@@ -106,14 +106,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/apple-techie/apple-techie-macos/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/patrickalowe/macos/issues).
 
 ## 📧 Contact
 
-apple-techie - [mail@appletechie.dev](mailto:mail@appletechie.dev)
+patrickalowe - [mail@patrickalowe.dev](mailto:mail@patrickalowe.dev)
 
-Project Link: [https://github.com/apple-techie/apple-techie-macos](https://github.com/apple-techie/apple-techie-macos)
+Project Link: [https://github.com/patrickalowe/macos](https://github.com/patrickalowe/macos)
 
 ---
 
-<p align="center"><sub>Made with ❤️ by apple-techie</sub></p>
+<p align="center"><sub>Made with ❤️ by patrickalowe</sub></p>

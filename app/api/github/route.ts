@@ -49,7 +49,7 @@ async function fetchContributions(user: string, signal: AbortSignal): Promise<Gi
       headers: {
         Authorization: "Bearer " + env.githubToken,
         "Content-Type": "application/json",
-        "User-Agent": "apple-techie-macos",
+        "User-Agent": "patrickalowe-macos",
       },
       body: JSON.stringify({ query, variables: { login: user } }),
       signal,
@@ -81,7 +81,7 @@ export async function GET(req: NextRequest) {
   try {
     const headers: Record<string, string> = {
       Accept: "application/vnd.github+json",
-      "User-Agent": "apple-techie-macos",
+      "User-Agent": "patrickalowe-macos",
       ...(hasGithubAuth() ? { Authorization: "Bearer " + env.githubToken } : {}),
     }
 

@@ -3,8 +3,8 @@ import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: 'apple-techie | macOS Portfolio',
-  description: 'An interactive macOS Tahoe desktop, rebuilt in the browser — portfolio of apple-techie.',
+  title: 'patrickalowe | macOS Portfolio',
+  description: 'An interactive macOS Tahoe desktop, rebuilt in the browser — portfolio of patrickalowe.',
   generator: 'Next.js',
 }
 

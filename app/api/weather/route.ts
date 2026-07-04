@@ -55,7 +55,7 @@ async function reverseGeocode(
     const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&zoom=10&addressdetails=1`
     const res = await fetch(url, {
       signal,
-      headers: { "User-Agent": "apple-techie-macos/1.0 (https://appletechie.dev)" },
+      headers: { "User-Agent": "patrickalowe-macos/1.0 (https://patrickalowe.dev)" },
     })
     if (!res.ok) return {}
     const b = (await res.json()) as {
@@ -75,6 +75,49 @@ async function reverseGeocode(
     return { name, country: a.country || (a.country_code ? a.country_code.toUpperCase() : undefined) }
   } catch {
     return {}
+  }
+}
+
+interface ApproxLocation {
+  lat: number
+  lon: number
+  name?: string
+  country?: string
+}
+
+/** Cloudflare attaches geo data to every request in production (Workers `cf` object). */
+function cfLocation(req: NextRequest): ApproxLocation | null {
+  const cf = (req as unknown as {
+    cf?: { latitude?: string; longitude?: string; city?: string; country?: string }
+  }).cf
+  if (!cf) return null
+  const lat = Number(cf.latitude)
+  const lon = Number(cf.longitude)
+  if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null
+  return { lat, lon, name: cf.city, country: cf.country }
+}
+
+/** Keyless IP geolocation fallback (mainly for local dev, where `cf` is absent). */
+async function ipLocation(req: NextRequest, signal: AbortSignal): Promise<ApproxLocation | null> {
+  try {
+    const fwd =
+      req.headers.get("cf-connecting-ip") ||
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      ""
+    const isPublicIp = fwd !== "" && !/^(10\.|127\.|172\.(1[6-9]|2\d|3[01])\.|192\.168\.|::1$|f[cd]|fe80)/i.test(fwd)
+    const res = await fetch(isPublicIp ? `https://ipwho.is/${fwd}` : "https://ipwho.is/", { signal })
+    if (!res.ok) return null
+    const b = (await res.json()) as {
+      success?: boolean
+      latitude?: number
+      longitude?: number
+      city?: string
+      country_code?: string
+    }
+    if (b.success === false || typeof b.latitude !== "number" || typeof b.longitude !== "number") return null
+    return { lat: b.latitude, lon: b.longitude, name: b.city, country: b.country_code }
+  } catch {
+    return null
   }
 }
 
@@ -108,7 +151,7 @@ export async function GET(req: NextRequest) {
         lon = hit.longitude
         name = hit.name
         country = hit.country
-      } else {
+      } else if (latParam !== null || lonParam !== null) {
         const latNum = Number(latParam)
         const lonNum = Number(lonParam)
         if (!Number.isFinite(latNum) || !Number.isFinite(lonNum)) {
@@ -119,6 +162,20 @@ export async function GET(req: NextRequest) {
         const rev = await reverseGeocode(latNum, lonNum, signal)
         name = rev.name || `${latNum.toFixed(2)}, ${lonNum.toFixed(2)}`
         country = rev.country
+      } else {
+        // No city, no coords: local weather for the requester.
+        const approx = cfLocation(req) ?? (await ipLocation(req, signal))
+        if (!approx) throw new Error("could not resolve request location")
+        lat = approx.lat
+        lon = approx.lon
+        if (approx.name) {
+          name = approx.name
+          country = approx.country
+        } else {
+          const rev = await reverseGeocode(lat, lon, signal)
+          name = rev.name || `${lat.toFixed(2)}, ${lon.toFixed(2)}`
+          country = rev.country || approx.country
+        }
       }
 
       const wUrl = new URL(env.weatherBase)
@@ -134,6 +191,8 @@ export async function GET(req: NextRequest) {
       )
       wUrl.searchParams.set("timezone", "auto")
       wUrl.searchParams.set("forecast_days", "5")
+      wUrl.searchParams.set("temperature_unit", "fahrenheit")
+      wUrl.searchParams.set("wind_speed_unit", "mph")
 
       const wRes = await fetch(wUrl, { signal })
       if (!wRes.ok) throw new Error(`weather ${wRes.status}`)
@@ -175,12 +234,12 @@ export async function GET(req: NextRequest) {
       return {
         location: { name, country, lat, lon },
         current: {
-          tempC: Math.round(cur.temperature_2m),
-          feelsLikeC: Math.round(cur.apparent_temperature),
+          tempF: Math.round(cur.temperature_2m),
+          feelsLikeF: Math.round(cur.apparent_temperature),
           condition: currentCondition,
           conditionLabel: conditionLabel(currentCondition),
           humidity: Math.round(cur.relative_humidity_2m),
-          windKph: Math.round(cur.wind_speed_10m),
+          windMph: Math.round(cur.wind_speed_10m),
           sunrise: toHHMM(daily.sunrise[0]),
           sunset: toHHMM(daily.sunset[0]),
           isDay: cur.is_day === 1,

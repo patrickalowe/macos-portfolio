@@ -128,12 +128,12 @@ export interface WeatherDay {
 export interface WeatherResponse {
   location: { name: string; country?: string; lat: number; lon: number }
   current: {
-    tempC: number
-    feelsLikeC: number
+    tempF: number
+    feelsLikeF: number
     condition: WeatherCondition
     conditionLabel: string
     humidity: number
-    windKph: number
+    windMph: number
     sunrise: string
     sunset: string
     isDay: boolean

@@ -36,7 +36,7 @@ const MAILBOXES: MailboxDef[] = [
   { id: "Trash", label: "Trash", icon: Trash2 },
 ]
 
-const OWNER_EMAIL = "mail@appletechie.dev"
+const OWNER_EMAIL = "mail@patrickalowe.dev"
 
 function relativeDate(iso: string): string {
   const then = new Date(iso).getTime()

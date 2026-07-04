@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "appletechie-macos",
+  "name": "patrickalowe-macos",
   "account_id": "a3abcd2451736f6a3867db58e7c8ec05",
   "compatibility_date": "2026-06-01",
   "compatibility_flags": ["nodejs_compat"],

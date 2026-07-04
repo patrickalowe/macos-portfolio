@@ -22,21 +22,21 @@ interface SiteLink {
 
 /** Personal links — external profiles that block embedding, so they open in a new tab. */
 const socialLinks: SiteLink[] = [
-  { title: "GitHub", url: "https://github.com/apple-techie", icon: "/github.png" },
-  { title: "X", url: "https://x.com/apple_techie", icon: "/twitter-icon.png" },
+  { title: "GitHub", url: "https://github.com/patrickalowe", icon: "/github.png" },
+  { title: "X", url: "https://x.com/patrickalowe", icon: "/twitter-icon.png" },
   {
     title: "Instagram",
-    url: "https://instagram.com/appletechie",
+    url: "https://instagram.com/patrickalowe",
     Icon: Instagram,
     iconWrap: "bg-gradient-to-br from-[#feda75] via-[#d62976] to-[#4f5bd5] text-white ring-0",
   },
   { title: "Spotify", url: "https://open.spotify.com/user/12137031642", icon: "/spotify.png" },
-  { title: "Email", url: "mailto:mail@appletechie.dev", icon: "/mail.png" },
+  { title: "Email", url: "mailto:mail@patrickalowe.dev", icon: "/mail.png" },
 ]
 
 /** Sites that allow embedding — these load inside the browser frame. */
 const quickLinks: { title: string; url: string }[] = [
-  { title: "appletechie.dev", url: "https://appletechie.dev" },
+  { title: "patrickalowe.dev", url: "https://patrickalowe.dev" },
   { title: "Wikipedia", url: "https://en.wikipedia.org/wiki/MacOS" },
   { title: "MDN", url: "https://developer.mozilla.org" },
   { title: "Hacker News", url: "https://news.ycombinator.com" },
@@ -272,7 +272,7 @@ export default function Safari(_props: SafariProps) {
               </div>
 
               <div className="glass rounded-sheet p-6">
-                <h3 className="mb-3 text-xl font-semibold">apple-techie — Portfolio</h3>
+                <h3 className="mb-3 text-xl font-semibold">patrickalowe — Portfolio</h3>
                 <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
                   Type a URL above and press Enter to browse — pages load right here. Some large sites (Google, YouTube,
                   X) block embedding; use the ↗ button to open those in a new tab.
@@ -280,10 +280,10 @@ export default function Safari(_props: SafariProps) {
                 <div className="flex justify-end">
                   <button
                     type="button"
-                    onClick={() => loadUrl("https://appletechie.dev")}
+                    onClick={() => loadUrl("https://patrickalowe.dev")}
                     className="glass-interactive glass-tint-accent lg-focus inline-flex rounded-control px-4 py-2 text-sm font-medium text-foreground outline-none"
                   >
-                    Open appletechie.dev
+                    Open patrickalowe.dev
                   </button>
                 </div>
               </div>

@@ -16,6 +16,8 @@ export interface AppMeta {
   inLaunchpad: boolean
   /** extra search terms for Spotlight */
   keywords?: string[]
+  /** when set, launching opens this URL in a new tab instead of a window */
+  externalUrl?: string
 }
 
 /**
@@ -62,7 +64,8 @@ export const APPS: AppMeta[] = [
   {
     id: "spotify", title: "Spotify", icon: "/spotify.png", component: "Spotify",
     defaultSize: { width: 920, height: 640 }, inDock: true, dockOrder: 8, inLaunchpad: true,
-    keywords: ["music", "songs", "player", "audio", "playlist"],
+    keywords: ["music", "songs", "player", "audio", "playlist", "profile"],
+    externalUrl: "https://open.spotify.com/user/12136823108",
   },
   {
     id: "facetime", title: "FaceTime", icon: "/facetime.png", component: "FaceTime",

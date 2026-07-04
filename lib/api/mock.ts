@@ -74,7 +74,7 @@ export function mockNotes(): NotesResponse {
         id: "contact",
         title: "Contact",
         preview: "Let's build something.",
-        body: "## Get in touch\n\n- Email: mail@patrickalowe.dev\n- GitHub: github.com/patrickalowe\n- X: x.com/patrickalowe\n- Instagram: instagram.com/patrickalowe\n- Web: patrickalowe.dev",
+        body: "## Get in touch\n\n- Email: patrick.lowe.94@gmail.com\n- GitHub: github.com/patrickalowe\n- X: x.com/patrickalowe\n- Instagram: instagram.com/patrickalowe\n- Web: patrickalowe.dev",
         folder: "Personal",
         updatedAt: isoDaysAgo(9),
       },
@@ -87,7 +87,7 @@ export function mockMail(): MailResponse {
   const messages = [
     {
       id: "m1",
-      from: { name: "patrickalowe", email: "mail@patrickalowe.dev" },
+      from: { name: "patrickalowe", email: "patrick.lowe.94@gmail.com" },
       subject: "Welcome to my portfolio 👋",
       preview: "Thanks for stopping by — here's how to reach me and what I'm working on.",
       body: "Hi there,\n\nThanks for exploring this macOS Tahoe portfolio. Every app here is real: live GitHub data, live weather, a working file browser over the actual repo, and more.\n\nWant to work together? Just reply.\n\n— patrickalowe",

@@ -227,7 +227,7 @@ function buildRegistry(): Map<string, Command> {
     summary: "How to reach me",
     handler: () => ({
       lines: [
-        out("email      mail@patrickalowe.dev"),
+        out("email      patrick.lowe.94@gmail.com"),
         out("github     github.com/patrickalowe"),
         out("x          x.com/patrickalowe"),
         out("instagram  instagram.com/patrickalowe"),

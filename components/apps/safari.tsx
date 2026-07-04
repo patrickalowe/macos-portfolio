@@ -31,7 +31,7 @@ const socialLinks: SiteLink[] = [
     iconWrap: "bg-gradient-to-br from-[#feda75] via-[#d62976] to-[#4f5bd5] text-white ring-0",
   },
   { title: "Spotify", url: "https://open.spotify.com/user/12136823108", icon: "/spotify.png" },
-  { title: "Email", url: "mailto:mail@patrickalowe.dev", icon: "/mail.png" },
+  { title: "Email", url: "mailto:patrick.lowe.94@gmail.com", icon: "/mail.png" },
 ]
 
 /** Sites that allow embedding — these load inside the browser frame. */

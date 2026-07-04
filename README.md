@@ -110,7 +110,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 📧 Contact
 
-patrickalowe - [mail@patrickalowe.dev](mailto:mail@patrickalowe.dev)
+patrickalowe - [patrick.lowe.94@gmail.com](mailto:patrick.lowe.94@gmail.com)
 
 Project Link: [https://github.com/patrickalowe/macos](https://github.com/patrickalowe/macos)
 

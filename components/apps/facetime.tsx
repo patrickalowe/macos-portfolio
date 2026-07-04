@@ -28,7 +28,7 @@ type CallError = {
 }
 
 const CONTACT_NAME = "patrickalowe"
-const CONTACT_HANDLE = "mail@patrickalowe.dev"
+const CONTACT_HANDLE = "patrick.lowe.94@gmail.com"
 const CONTACT_INITIALS = "DP"
 
 function formatDuration(totalSeconds: number) {

@@ -1,10 +1,10 @@
 [
   {
     "id": "m1",
-    "from": { "name": "patrickalowe", "email": "mail@patrickalowe.dev" },
+    "from": { "name": "patrickalowe", "email": "patrick.lowe.94@gmail.com" },
     "subject": "Welcome to my portfolio 👋",
     "preview": "Thanks for stopping by — here's how to reach me and what I'm working on.",
-    "body": "Hi there,\n\nThanks for exploring this macOS Tahoe portfolio. Every app here is real: live GitHub data, live weather, a working file browser over the actual repo, and Mail you're reading right now.\n\nI'm a frontend developer and UI/UX designer who sweats the details — Liquid Glass, motion, accessibility, the works. If you'd like to build something together, just hit reply and I'll get back to you within a day.\n\n— patrickalowe\nmail@patrickalowe.dev · patrickalowe.dev",
+    "body": "Hi there,\n\nThanks for exploring this macOS Tahoe portfolio. Every app here is real: live GitHub data, live weather, a working file browser over the actual repo, and Mail you're reading right now.\n\nI'm a frontend developer and UI/UX designer who sweats the details — Liquid Glass, motion, accessibility, the works. If you'd like to build something together, just hit reply and I'll get back to you within a day.\n\n— patrickalowe\npatrick.lowe.94@gmail.com · patrickalowe.dev",
     "date": "2026-06-18T08:14:00.000Z",
     "read": false,
     "starred": true,

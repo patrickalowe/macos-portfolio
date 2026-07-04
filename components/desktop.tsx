@@ -11,7 +11,7 @@ import Launchpad from "@/components/launchpad"
 import ControlCenter from "@/components/control-center"
 import Spotlight from "@/components/spotlight"
 import type { AppWindow, DesktopRect } from "@/types"
-import { getApp, makeWindow } from "@/lib/apps-registry"
+import { makeWindow } from "@/lib/apps-registry"
 
 const MENUBAR_H = 26
 const DOCK_RESERVED = 96
@@ -72,11 +72,6 @@ export default function Desktop({ onLogout, onSleep, onShutdown, onRestart }: De
     (id: string) => {
       setShowLaunchpad(false)
       setShowSpotlight(false)
-      const externalUrl = getApp(id)?.externalUrl
-      if (externalUrl) {
-        window.open(externalUrl, "_blank", "noopener,noreferrer")
-        return
-      }
       const exists = winsRef.current.some((w) => w.id === id)
       if (exists) {
         setOpenWindows((prev) => prev.map((w) => (w.id === id ? { ...w, minimized: false } : w)))

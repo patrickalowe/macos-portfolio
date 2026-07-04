@@ -34,6 +34,16 @@ const socialLinks: SiteLink[] = [
   { title: "Email", url: "mailto:patrick.lowe.94@gmail.com", icon: "/mail.png" },
 ]
 
+/** Pinned repositories on github.com/patrickalowe — GitHub blocks embedding, so these open in a new tab. */
+const pinnedRepos: { name: string; language: string; description?: string }[] = [
+  { name: "F-I-MENU", language: "HTML" },
+  { name: "Custom_CRM_Build", language: "HTML", description: "KPI from Google Sheets" },
+  { name: "PatrickLoweBusinessCardWCA", language: "HTML" },
+  { name: "QR_Flow_Business", language: "HTML", description: "Business Card QR Flow" },
+  { name: "sales-call-prep-agent", language: "Python" },
+  { name: "sales-call-prep-web", language: "Python" },
+]
+
 /** Sites that allow embedding — these load inside the browser frame. */
 const quickLinks: { title: string; url: string }[] = [
   { title: "patrickalowe.dev", url: "https://patrickalowe.dev" },
@@ -273,10 +283,26 @@ export default function Safari(_props: SafariProps) {
 
               <div className="glass rounded-sheet p-6">
                 <h3 className="mb-3 text-xl font-semibold">patrickalowe — Portfolio</h3>
-                <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
-                  Type a URL above and press Enter to browse — pages load right here. Some large sites (Google, YouTube,
-                  X) block embedding; use the ↗ button to open those in a new tab.
-                </p>
+                <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {pinnedRepos.map((repo) => (
+                    <a
+                      key={repo.name}
+                      href={`https://github.com/patrickalowe/${repo.name}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="glass-thin glass-interactive lg-focus flex flex-col gap-1 rounded-tile p-3 outline-none"
+                    >
+                      <span className="flex items-center gap-2">
+                        <img src="/github.png" alt="" aria-hidden className="h-4 w-4 shrink-0" draggable={false} />
+                        <span className="truncate text-sm font-medium">{repo.name}</span>
+                      </span>
+                      <span className="truncate text-xs text-muted-foreground">
+                        {repo.description ? `${repo.description} · ` : ""}
+                        {repo.language}
+                      </span>
+                    </a>
+                  ))}
+                </div>
                 <div className="flex justify-end">
                   {/* GitHub blocks embedding, so this opens in a new tab. */}
                   <a

@@ -20,6 +20,7 @@ import Music from "@/components/apps/music"
 import Snake from "@/components/apps/snake"
 import Weather from "@/components/apps/weather"
 import Settings from "@/components/apps/settings"
+import PineAppleTV from "@/components/apps/pineapple-tv"
 
 const componentMap: Record<string, React.ComponentType<{ isDarkMode?: boolean }>> = {
   Notes,
@@ -35,6 +36,7 @@ const componentMap: Record<string, React.ComponentType<{ isDarkMode?: boolean }>
   Snake,
   Weather,
   Settings,
+  PineAppleTV,
 }
 
 interface WindowProps {

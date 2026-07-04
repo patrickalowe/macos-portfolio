@@ -16,8 +16,6 @@ export interface AppMeta {
   inLaunchpad: boolean
   /** extra search terms for Spotlight */
   keywords?: string[]
-  /** when set, launching opens this URL in a new tab instead of a window */
-  externalUrl?: string
 }
 
 /**
@@ -65,7 +63,6 @@ export const APPS: AppMeta[] = [
     id: "spotify", title: "Spotify", icon: "/spotify.png", component: "Spotify",
     defaultSize: { width: 920, height: 640 }, inDock: true, dockOrder: 8, inLaunchpad: true,
     keywords: ["music", "songs", "player", "audio", "playlist", "profile"],
-    externalUrl: "https://open.spotify.com/user/12136823108",
   },
   {
     id: "facetime", title: "FaceTime", icon: "/facetime.png", component: "FaceTime",
@@ -76,6 +73,11 @@ export const APPS: AppMeta[] = [
     id: "music", title: "Music", icon: "/spotify.png", component: "Music",
     defaultSize: { width: 900, height: 620 }, inDock: false, inLaunchpad: true,
     keywords: ["songs", "audio", "player"],
+  },
+  {
+    id: "pineapple-tv", title: "PineApple TV", icon: "/pineapple-tv.svg", component: "PineAppleTV",
+    defaultSize: { width: 1100, height: 700 }, inDock: true, dockOrder: 9, inLaunchpad: true,
+    keywords: ["tv", "video", "stream", "watch", "famelack"],
   },
   {
     id: "snake", title: "Snake", icon: "/snake.png", component: "Snake",

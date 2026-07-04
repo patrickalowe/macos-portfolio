@@ -33,7 +33,7 @@ export function mockSystem(): SystemResponse {
   return {
     device: { name: "PatrickALowe's MacBook Pro", chip: "Apple M3 Pro", platform: "darwin", arch: "arm64", cpuCount: 12 },
     memory: { totalGb: 36, freeGb: 12 },
-    os: { release: "26.0", nodeVersion: "v22.0.0", nextVersion: "15.2.4" },
+    os: { release: "26.0", nodeVersion: "v22.0.0", nextVersion: "15.5.20" },
     build: { commit: "local", builtAt: new Date().toISOString(), env: "development" },
     serverUptimeSec: 4096,
     loadAvg: [1.42, 1.31, 1.18],

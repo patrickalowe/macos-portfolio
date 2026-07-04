@@ -27,7 +27,7 @@ type CallError = {
   message: string
 }
 
-const CONTACT_NAME = "patrickalowe"
+const CONTACT_NAME = "PatrickALowe"
 const CONTACT_HANDLE = "patrick.lowe.94@gmail.com"
 const CONTACT_INITIALS = "DP"
 

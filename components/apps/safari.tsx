@@ -23,6 +23,7 @@ interface SiteLink {
 /** Personal links — external profiles that block embedding, so they open in a new tab. */
 const socialLinks: SiteLink[] = [
   { title: "GitHub", url: "https://github.com/patrickalowe", icon: "/github.png" },
+  { title: "LinkedIn", url: "https://www.linkedin.com/in/patrickalowe", icon: "/linkedin.png" },
   { title: "X", url: "https://x.com/GANDORK0125", icon: "/twitter-icon.png" },
   {
     title: "Instagram",
@@ -282,7 +283,7 @@ export default function Safari(_props: SafariProps) {
               </div>
 
               <div className="glass rounded-sheet p-6">
-                <h3 className="mb-3 text-xl font-semibold">patrickalowe — Portfolio</h3>
+                <h3 className="mb-3 text-xl font-semibold">PatrickALowe — Portfolio</h3>
                 <div className="mb-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
                   {pinnedRepos.map((repo) => (
                     <a

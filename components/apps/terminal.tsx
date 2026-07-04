@@ -195,7 +195,7 @@ function buildRegistry(): Map<string, Command> {
     summary: "A short bio",
     handler: () => ({
       lines: [
-        accent("patrickalowe"),
+        accent("PatrickALowe"),
         dim("Frontend Developer & UI/UX Designer"),
         out(""),
         out("I build beautiful, responsive, accessible web apps with"),
@@ -479,7 +479,7 @@ export default function Terminal({ isDarkMode }: TerminalProps) {
 
   const [lines, setLines] = useState<Line[]>(() => [
     { id: 0, kind: "dim", text: `Last login: ${new Date().toLocaleString()}` },
-    { id: 1, kind: "out", text: "Welcome to patrickalowe's terminal." },
+    { id: 1, kind: "out", text: "Welcome to PatrickALowe's terminal." },
     { id: 2, kind: "dim", text: "Type 'help' for a list of commands." },
     { id: 3, kind: "out", text: "" },
   ])

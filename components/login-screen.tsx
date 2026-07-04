@@ -56,9 +56,9 @@ export default function LoginScreen({ onLogin, isDarkMode, onToggleDarkMode }: L
 
       <div className="relative z-10 flex flex-col items-center">
         <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full glass-thick text-4xl font-semibold tracking-tight lg-vibrant">
-          AT
+          PL
         </div>
-        <h2 className="mb-6 text-2xl font-medium lg-text-scrim">patrickalowe</h2>
+        <h2 className="mb-6 text-2xl font-medium lg-text-scrim">PatrickALowe</h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
           <div className={`relative ${shake ? "lg-shake" : ""}`}>

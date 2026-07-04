@@ -31,7 +31,7 @@ function isoDaysAgo(days: number): string {
 /* ----------------------------------------------------------------- system -- */
 export function mockSystem(): SystemResponse {
   return {
-    device: { name: "patrickalowe's MacBook Pro", chip: "Apple M3 Pro", platform: "darwin", arch: "arm64", cpuCount: 12 },
+    device: { name: "PatrickALowe's MacBook Pro", chip: "Apple M3 Pro", platform: "darwin", arch: "arm64", cpuCount: 12 },
     memory: { totalGb: 36, freeGb: 12 },
     os: { release: "26.0", nodeVersion: "v22.0.0", nextVersion: "15.2.4" },
     build: { commit: "local", builtAt: new Date().toISOString(), env: "development" },
@@ -57,7 +57,7 @@ export function mockNotes(): NotesResponse {
         id: "about",
         title: "About Me",
         preview: "Frontend developer & UI/UX designer crafting delightful web experiences.",
-        body: "# patrickalowe\n\nFrontend developer & UI/UX designer. I build beautiful, responsive, accessible web apps with React, Next.js and TypeScript — and I sweat the details.\n\nCurrently exploring Liquid Glass interfaces and design systems.",
+        body: "# PatrickALowe\n\nFrontend developer & UI/UX designer. I build beautiful, responsive, accessible web apps with React, Next.js and TypeScript — and I sweat the details.\n\nCurrently exploring Liquid Glass interfaces and design systems.",
         folder: "Personal",
         pinned: true,
         updatedAt: isoDaysAgo(1),
@@ -87,10 +87,10 @@ export function mockMail(): MailResponse {
   const messages = [
     {
       id: "m1",
-      from: { name: "patrickalowe", email: "patrick.lowe.94@gmail.com" },
+      from: { name: "PatrickALowe", email: "patrick.lowe.94@gmail.com" },
       subject: "Welcome to my portfolio 👋",
       preview: "Thanks for stopping by — here's how to reach me and what I'm working on.",
-      body: "Hi there,\n\nThanks for exploring this macOS Tahoe portfolio. Every app here is real: live GitHub data, live weather, a working file browser over the actual repo, and more.\n\nWant to work together? Just reply.\n\n— patrickalowe",
+      body: "Hi there,\n\nThanks for exploring this macOS Tahoe portfolio. Every app here is real: live GitHub data, live weather, a working file browser over the actual repo, and more.\n\nWant to work together? Just reply.\n\n— PatrickALowe",
       date: isoDaysAgo(0),
       read: false,
       starred: true,
@@ -155,7 +155,7 @@ export function mockGithub(user: string): GithubResponse {
   return {
     profile: {
       login: user,
-      name: "patrickalowe",
+      name: "PatrickALowe",
       avatarUrl: "/github.png",
       bio: "Frontend developer & UI/UX designer",
       followers: 248,

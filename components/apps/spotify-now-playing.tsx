@@ -72,7 +72,7 @@ function Header({ profileUrl, live }: { profileUrl: string; live: boolean }) {
 
 export default function SpotifyNowPlaying() {
   const { data, error, loading, refetch } = useApi<SpotifyResponse>("/api/spotify", { pollMs: 30000 })
-  const profileUrl = data?.profileUrl || "https://open.spotify.com/user/12137031642"
+  const profileUrl = data?.profileUrl || "https://open.spotify.com/user/12136823108"
 
   // Smoothly advance the progress bar between polls while playing.
   const [tick, setTick] = useState(0)

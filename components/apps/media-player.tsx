@@ -43,7 +43,7 @@ const ACCENTS: Record<MediaAccent, AccentConfig> = {
     logo: "/spotify.png",
     color: "#1db954",
     wash: "from-[#1db954]/25 via-[#1db954]/5 to-transparent",
-    profileUrl: "https://open.spotify.com/user/12137031642",
+    profileUrl: "https://open.spotify.com/user/12136823108",
   },
   apple: {
     name: "Music",

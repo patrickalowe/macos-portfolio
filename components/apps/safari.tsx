@@ -30,7 +30,7 @@ const socialLinks: SiteLink[] = [
     Icon: Instagram,
     iconWrap: "bg-gradient-to-br from-[#feda75] via-[#d62976] to-[#4f5bd5] text-white ring-0",
   },
-  { title: "Spotify", url: "https://open.spotify.com/user/12137031642", icon: "/spotify.png" },
+  { title: "Spotify", url: "https://open.spotify.com/user/12136823108", icon: "/spotify.png" },
   { title: "Email", url: "mailto:mail@patrickalowe.dev", icon: "/mail.png" },
 ]
 

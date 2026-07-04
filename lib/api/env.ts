@@ -17,7 +17,7 @@ export const env = {
   spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET?.trim() || "",
   spotifyRefreshToken: process.env.SPOTIFY_REFRESH_TOKEN?.trim() || "",
   /** Public Spotify profile shown in the app. */
-  spotifyProfileUrl: process.env.NEXT_PUBLIC_SPOTIFY_PROFILE?.trim() || "https://open.spotify.com/user/12137031642",
+  spotifyProfileUrl: process.env.NEXT_PUBLIC_SPOTIFY_PROFILE?.trim() || "https://open.spotify.com/user/12136823108",
 }
 
 export function hasGithubAuth(): boolean {

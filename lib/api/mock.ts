@@ -74,7 +74,7 @@ export function mockNotes(): NotesResponse {
         id: "contact",
         title: "Contact",
         preview: "Let's build something.",
-        body: "## Get in touch\n\n- Email: patrick.lowe.94@gmail.com\n- GitHub: github.com/patrickalowe\n- X: x.com/patrickalowe\n- Instagram: instagram.com/patrickalowe\n- Web: patrickalowe.dev",
+        body: "## Get in touch\n\n- Email: patrick.lowe.94@gmail.com\n- GitHub: github.com/patrickalowe\n- X: x.com/GANDORK0125\n- Instagram: instagram.com/patrickalowe\n- Web: patrickalowe.dev",
         folder: "Personal",
         updatedAt: isoDaysAgo(9),
       },

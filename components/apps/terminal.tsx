@@ -229,7 +229,7 @@ function buildRegistry(): Map<string, Command> {
       lines: [
         out("email      patrick.lowe.94@gmail.com"),
         out("github     github.com/patrickalowe"),
-        out("x          x.com/patrickalowe"),
+        out("x          x.com/GANDORK0125"),
         out("instagram  instagram.com/patrickalowe"),
         out("web        patrickalowe.dev"),
       ],

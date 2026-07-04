@@ -23,7 +23,7 @@ interface SiteLink {
 /** Personal links — external profiles that block embedding, so they open in a new tab. */
 const socialLinks: SiteLink[] = [
   { title: "GitHub", url: "https://github.com/patrickalowe", icon: "/github.png" },
-  { title: "X", url: "https://x.com/patrickalowe", icon: "/twitter-icon.png" },
+  { title: "X", url: "https://x.com/GANDORK0125", icon: "/twitter-icon.png" },
   {
     title: "Instagram",
     url: "https://instagram.com/patrickalowe",
@@ -278,13 +278,15 @@ export default function Safari(_props: SafariProps) {
                   X) block embedding; use the ↗ button to open those in a new tab.
                 </p>
                 <div className="flex justify-end">
-                  <button
-                    type="button"
-                    onClick={() => loadUrl("https://patrickalowe.dev")}
+                  {/* GitHub blocks embedding, so this opens in a new tab. */}
+                  <a
+                    href="https://github.com/patrickalowe"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="glass-interactive glass-tint-accent lg-focus inline-flex rounded-control px-4 py-2 text-sm font-medium text-foreground outline-none"
                   >
-                    Open patrickalowe.dev
-                  </button>
+                    Open my GitHub Portfolio
+                  </a>
                 </div>
               </div>
             </div>

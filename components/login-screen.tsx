@@ -35,7 +35,7 @@ export default function LoginScreen({ onLogin, isDarkMode, onToggleDarkMode }: L
     }
   }
 
-  const wallpaper = isDarkMode ? "/wallpaper-night.jpg" : "/wallpaper-day.jpg"
+  const wallpaper = "/wallpaper-photo.jpg"
 
   const formattedTime =
     time?.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true }) ?? ""

@@ -5,24 +5,19 @@ import { useSystem } from "@/components/system-provider"
 export default function Wallpaper() {
   const { mounted, isDarkMode } = useSystem()
 
-  // Until mounted, default to the day layer to avoid a theme flash on hydration.
-  const showNight = mounted && isDarkMode
+  // Single photo for both appearances; dark mode dims it slightly so glass
+  // surfaces and menubar text stay legible.
+  const dimmed = mounted && isDarkMode
 
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-glass"
-        style={{
-          backgroundImage: "url('/wallpaper-day.jpg')",
-          opacity: showNight ? 0 : 1,
-        }}
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/wallpaper-photo.jpg')" }}
       />
       <div
-        className="absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-glass"
-        style={{
-          backgroundImage: "url('/wallpaper-night.jpg')",
-          opacity: showNight ? 1 : 0,
-        }}
+        className="absolute inset-0 bg-black transition-opacity duration-700 ease-glass"
+        style={{ opacity: dimmed ? 0.32 : 0 }}
       />
       {/* Subtle vignette + top-down gradient for depth and menubar legibility */}
       <div
